@@ -1,0 +1,23 @@
+---
+const repodId = import.meta.env.PUBLIC_GISCUS_REPO_ID;
+const categoryId = import.meta.env.PUBLIC_GISCUS_CATEGORAY_ID;
+---
+
+<div class="giscus-container mx-auto px-6 sm:px-6 py-16 max-w-3xl text-muted dark:text-slate-400">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="qingwave/qingwave.github.io"
+    data-repo-id={repodId}
+    data-category="Announcements"
+    data-category-id={categoryId}
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme={localStorage.theme == 'dark' ? 'dark' : 'light'}
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>

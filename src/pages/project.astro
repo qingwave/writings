@@ -1,0 +1,22 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+
+import { SITE } from '~/config.mjs';
+import { fetchProject } from '~/utils/project';
+import ProjectList from '~/components/project/ProjectList.astro';
+
+const projects = fetchProject();
+
+const meta = {
+  title: `Project`,
+  description: SITE.description,
+};
+---
+
+<Layout meta={meta}>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+    <Headline>我的项目</Headline>
+    <ProjectList projects={projects} />
+  </section>
+</Layout>

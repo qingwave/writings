@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon';
+
+import { SITE } from '~/config.mjs';
+
+export interface Props {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+  iconName?: string;
+}
+
+const {
+  label = 'Toggle between Dark and Light mode',
+  class:
+    className = 'text-slate-800 dark:text-gray-400 hover:text-slate-950 dark:hover:text-slate-300 text-sm p-2.5 inline-flex items-center',
+  iconClass = 'w-8 h-8',
+  iconName = 'ph:moon-fill',
+} = Astro.props;
+---
+
+{
+  !(SITE?.defaultTheme && SITE.defaultTheme.endsWith(':only')) && (
+    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
+      <Icon name={iconName} class={iconClass} />
+    </button>
+  )
+}

@@ -1,0 +1,44 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+import LatestPosts from '~/components/blog/LatestPosts.astro';
+import LatestProjects from '~/components/project/LatestProjects.astro';
+
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Layout {meta}>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+    <div class="space-y-4 mb-12">
+      <h1 class="font-bold text-2xl md:text-3xl leading-9">
+        {`Hi there 👋`}
+      </h1>
+      <p class="leading-9 text-lg">
+        我是
+        <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-lime-400">
+          Qingwave
+        </span>
+        ，一名开发者、白日梦想家，在这里会分享一些技术文章以及碎碎念。你可以通过
+        <a class="link" href="https://github.com/qingwave"> Github</a>
+        、
+        <a class="link" href="mailto:isguory@gmail.com"> Email</a>
+        、
+        <a class="link" href="https://juejin.cn/user/2576910988872951"> 掘金</a>
+        找到我，或者
+        <a class="link" href={getPermalink("/about")}> 关于我</a>。
+      </p>
+    </div>
+
+    <!-- Posts ******* -->
+    <LatestPosts title="写作" allPostsText="查看全部" />
+
+    <!-- Projects ******* -->
+    <LatestProjects title="项目" text="查看全部" />
+  </section>
+</Layout>

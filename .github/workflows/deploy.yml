@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
+  push:
+    branches: [main]
+    paths:
+      - "src"
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.x.x
+      - name: Install dependencies and build
+        env:
+          PUBLIC_GISCUS_REPO_ID: ${{secrets.PUBLIC_GISCUS_REPO_ID}}
+          PUBLIC_GISCUS_CATEGORAY_ID: ${{secrets.PUBLIC_GISCUS_CATEGORAY_ID}}
+        run: |
+          pnpm install
+          pnpm run build
+          pnpm run search
+       # push to qingwave.github.io
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'dist'
+          destination-github-username: 'qingwave'
+          destination-repository-name: 'qingwave.github.io'
+          target-branch: master
+  #     - name: Upload Pages Artifact
+  #       uses: actions/upload-pages-artifact@v1
+  #       with:
+  #         path: "./dist/"
+
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v1

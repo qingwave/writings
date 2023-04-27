@@ -1,0 +1,43 @@
+---
+import { fetchProject } from '~/utils/project';
+import ProjectList from './ProjectList.astro';
+import ViewAll from '../common/ViewAll.astro';
+
+export interface Props {
+  title?: string;
+  text?: string;
+  link?: string;
+  information?: string;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  text = 'View all projects',
+  link = '/projects',
+  information = await Astro.slots.render('information'),
+  count = 2,
+} = Astro.props;
+
+let projects = fetchProject();
+projects = projects.slice(0, count);
+---
+
+<section class="py-12 mx-auto max-w-3xl">
+  <div class="flex flex-col mb-8">
+    <div class="md:max-w-sm">
+      {
+        title && (
+          <h2
+            class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2"
+            set:html={title}
+          />
+        )
+      }
+    </div>
+
+    {information && <p class="text-muted dark:text-slate-400" set:html={information} />}
+  </div>
+
+  <ProjectList projects={projects} />
+  <ViewAll class="mt-6" text={text} link={link} />
+</section>

@@ -1,0 +1,47 @@
+---
+import { Picture } from '@astrojs/image/components';
+import ArrowMotion from '~/components/common/ArrowMotion.astro';
+import { Project } from '~/types';
+
+export interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul class="grid grid-cols-2 gap-10 mx-auto">
+  {
+    projects.map((project, index) => (
+      <li>
+        <a href={`${project.href}`}>
+          <div class="">
+            <Picture
+              src={project.img}
+              alt=""
+              sizes="(max-width: 800px) 100vw, 800px"
+              widths={[200, 400, 800]}
+              aspectRatio="16:9"
+              background="#ffffff"
+              fit="cover"
+              position="center"
+              loading={index <= 2 ? 'eager' : 'lazy'}
+              decoding={index <= 2 ? 'sync' : 'async'}
+              class="w-full rounded-md hover:brightness-50"
+            />
+            <div>
+              <div class="arrow-motion mt-4 flex items-center">
+                <h2 class=" text-lg font-semibold leading-snug tracking-tight">{project.title}</h2>
+                <ArrowMotion />
+              </div>
+
+              <div class="flex gap-1 mt-1 text-sm">
+                <p>{project.description}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>

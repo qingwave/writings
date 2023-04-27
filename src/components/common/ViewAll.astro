@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+  link: string;
+  text?: string | URL;
+  class?: string;
+}
+
+const { link, text, class: className } = Astro.props;
+---
+
+<div class={className}>
+<a
+  class="text-muted dark:text-slate-400 hover:text-primary transition ease-in duration-200 block mb-6 lg:mb-0"
+  href={link}
+>
+  <div class="flex items-center">{text} <Icon name="ic:outline-arrow-forward" class="w-5 h-5 ml-1" /></div>
+</a>
+</div>
