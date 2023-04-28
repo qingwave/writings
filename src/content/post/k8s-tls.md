@@ -130,7 +130,7 @@ apiserver 可以使用 HTTP 请求头中的指定字段来进行认证，相关�
 
 ### proxy 证书
 
-k8s 提供了丰富的扩展机制，CRD 与[API Aggregation][https://kubernetes.io/zh/docs/tasks/access-kubernetes-api/configure-aggregation-layer/]。
+k8s 提供了丰富的扩展机制，CRD 与[API Aggregation](https://kubernetes.io/zh/docs/tasks/access-kubernetes-api/configure-aggregation-layer/)。
 对于 API Aggregation(例如 metrics-server 提供了 metrics.k8s.io api), apiserver 接受到请求后经过一系列验证过滤，会将请求转发到扩展 API，这里 apisever 作为代理服务器，需要配置配置证书。
 
 ```

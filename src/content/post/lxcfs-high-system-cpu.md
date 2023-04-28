@@ -15,7 +15,7 @@ categories:
 
 ## 探究
 
-查看宿主机(内核 4.9.2)`top`,`1`显示每个 cpu 使用信息。查看最高的 cpu 占用是 lxcfs 造成的。
+查看宿主机(内核 4.9.2)top,显示每个 cpu 使用信息。查看最高的 cpu 占用是**lxcfs**造成的。
 
 `strace`查看 lxcfs 调用
 
@@ -58,7 +58,8 @@ cat lx.log
 ```
 
 经发现某个 pod 调用的次数明显高于其他 pod，排查到其容器内每隔 2s 执行`ps -auf`，会调用/proc/pid/stat 其中就有 memory 相关的。
-开开心心联系业务将其驱逐，宿主机没有明显变化。。。，再次查看`top`
+
+开开心心联系业务将其驱逐，宿主机没有明显变化，再次查看`top`
 
 ```bash
 top - 13:43:56 up 120 days, 19:21,  1 user,  load average: 6.59, 3.26, 2.34

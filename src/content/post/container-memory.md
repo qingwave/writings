@@ -18,7 +18,7 @@ categories:
 
 不管 docker 还是 k8s(通过 cadvisor)最终都通过 cgroup 的 memory group 来得到内存的原始文件，memory 相关的主要文件如下:
 
-```
+```conf
 cgroup.event_control       #用于eventfd的接口
 memory.usage_in_bytes      #显示当前已用的内存
 memory.limit_in_bytes      #设置/显示当前限制的内存额度
@@ -206,8 +206,10 @@ total_unevictable 0
 ```
 
 根据 memory 可得到如下关系：
-`memory.usage_in_bytes = memory.kmem.usage_in_bytes + rss + cache`
+```
+memory.usage_in_bytes = memory.kmem.usage_in_bytes + rss + cache
 即 2265088=901120+1351680+12288
+```
 
 那么容器的真实内存即：
 `memory.usage=memory.usage_in_bytes-cache`
@@ -233,7 +235,9 @@ CONTAINER ID        NAME                                                        
 
 真实环境中两种表示相差不大，但更推荐使用`working_set`作为容器内存真实使用量(kubelt 判断 OOM 的依据)，
 则容器内存使用率可表示为：
-`container_memory_working_set_bytes / memory.limit_in_bytes`
+```
+container_memory_working_set_bytes / memory.limit_in_bytes
+```
 
 ## 参考
 

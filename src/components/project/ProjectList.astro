@@ -10,7 +10,7 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<ul class="grid grid-cols-2 gap-10 mx-auto">
+<ul class="grid md:grid-cols-2 gap-10 mx-auto">
   {
     projects.map((project, index) => (
       <li>
@@ -27,11 +27,11 @@ const { projects } = Astro.props;
               position="center"
               loading={index <= 2 ? 'eager' : 'lazy'}
               decoding={index <= 2 ? 'sync' : 'async'}
-              class="w-full rounded-md hover:brightness-50"
+              class="w-full rounded-md hover:brightness-50 shadow-md"
             />
             <div>
               <div class="arrow-motion mt-4 flex items-center">
-                <h2 class=" text-lg font-semibold leading-snug tracking-tight">{project.title}</h2>
+                <h2 class="text-lg font-semibold leading-snug tracking-tight">{project.title}</h2>
                 <ArrowMotion />
               </div>
 

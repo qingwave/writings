@@ -9,12 +9,14 @@ categories:
 
 ## 背景
 
-由于项目要收集/var/log/messages 的日志到 es 中，发现 messages 日志按天切割，但归档的时间却不一致，于是查了点资料探究下。
+由于项目要收集`/var/log/messages`日志到ES中，发现日志是按天切割的，但归档的时间却不一致，于是查了点资料探究下。
 
 ## 介绍
 
-`/var/log/messages`是由`journald`生成的，流程如下
-`systemd --> systemd-journald --> ram DB --> rsyslog -> /var/log`
+`/var/log/messages`是由`journald`生成的，流程如下:
+```
+systemd --> systemd-journald --> ram DB --> rsyslog -> /var/log
+```
 当`systemd`启动后，`systemd-journald`也会立即启动。将日志存入 RAM 中，当`rsyslog`启动后会读取该 RAM 并完成筛选分类写入目录`/var/log`。
 
 ### 相关服务
@@ -24,7 +26,8 @@ categories:
 - systemd-journald.service：最主要的信息收受者，由 systemd 提供；
 - logrotate：主要进行日志的轮替功能
 
-`Centos7`使用`systemd`提供的`journalctl`管理日志，那所有经由`systemd`启动服务的日志，会将该日志信息由`systemd-journald.service`以二进制的方式记录下来，之后再将信息发送到`rsyslog.service`作进一步的处理。
+Centos7 使用 Systemd 提供的`journalctl`管理日志，所有经由`systemd`启动服务的日志，会将该日志信息由`systemd-journald.service`以二进制的方式记录下来，之后再将信息发送到`rsyslog.service`作进一步的处理。
+
 `systemd-journald.service`的记录主要都放置与内存中，因此性能较好，可以通过`journalctl`及`systemctl status unit.service`来查看各个服务的日志。
 
 ### 相关配置
@@ -32,7 +35,7 @@ categories:
 journald 配置文件
 `cat /etc/systemd/journald.conf`
 
-```
+```conf
 # This file is part of systemd.
 #
 # systemd is free software; you can redistribute it and/or modify it

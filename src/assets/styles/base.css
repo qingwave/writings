@@ -131,3 +131,7 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+.table-wrap {
+  overflow-x: auto;
+}

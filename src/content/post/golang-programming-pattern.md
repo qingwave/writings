@@ -1,6 +1,7 @@
 ---
 title: 'Golang优雅之道'
 date: 2022-09-12T14:57:10+08:00
+description: '一些好用的设计模式与编程手段'
 draft: false
 tags: ['golang', '程序设计']
 categories: ['code']

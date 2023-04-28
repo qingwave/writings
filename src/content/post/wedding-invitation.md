@@ -2,6 +2,7 @@
 title: '程序员的浪漫: 婚礼邀请函小程序'
 date: 2022-09-06T14:30:30+08:00
 draft: false
+description: '为自己的婚礼添加点不一样'
 tags: ['小程序']
 categories: ['code', '前端']
 ---

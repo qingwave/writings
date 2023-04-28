@@ -9,9 +9,11 @@ categories:
   - cloud
 ---
 
-## Cadvisor 内存使用率指标
+在K8s中，Pod的内容资源使用是由Cadvisor来采集的，相关指标由很多，究竟我们需要关系哪些指标。
 
-### Cadvisor 中有关 pod 内存使用率的指标
+## Cadvisor内存使用率指标
+
+Cadvisor 中有关 pod 内存使用率的指标如下：
 
 | 指标                               | 说明                                                                                                                    |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -24,12 +26,14 @@ categories:
 | container_memory_failcnt           | Number of memory usage hits limits.                                                                                     |
 | container_memory_failures_total    | Cumulative count of memory allocation failures.                                                                         |
 
-其中
-`container_memory_max_usage_bytes > container_memory_usage_bytes >= container_memory_working_set_bytes > container_memory_rss`
-
-### Cadvisor 中相关定义
-
+指标有如下关系：
 ```
+container_memory_max_usage_bytes > container_memory_usage_bytes >= container_memory_working_set_bytes > container_memory_rss
+```
+
+Cadvisor中指标对应的代码：
+
+```go
 type MemoryStats struct { // Current memory usage, this includes all memory regardless of when it was // accessed. // Units: Bytes. Usage uint64 json:"usage"
 
 // Maximum memory usage recorded.
@@ -61,12 +65,12 @@ type MemoryStats struct { // Current memory usage, this includes all memory rega
 }
 ```
 
+[这篇文章](https://blog.freshtracks.io/a-deep-dive-into-kubernetes-metrics-part-3-container-resource-metrics-361c5ee46e66)解释的很好
 > You might think that memory utilization is easily tracked with container_memory_usage_bytes, however, this metric also includes cached (think filesystem cache) items that can be evicted under memory pressure. The better metric is container_memory_working_set_bytes as this is what the OOM killer is watching for.
-> To calculate container memory utilization we use: sum(container_memory_working_set_bytes{name!~"POD"}) by (name)
 
-kubelet 通过 watch container_memory_working_set_bytes 来判断是否 OOM， 所以用 working set 来评价容器内存使用量更科学
+kubelet 是通过 watch `container_memory_working_set_bytes` 来判断是否 OOM， 所以用`working_set`来评价容器内存使用量更科学。
 
-## Cgroup 中关于 mem 指标
+## Cgroup中的内存指标
 
 cgroup 目录相关文件
 
@@ -80,7 +84,7 @@ cgroup 目录相关文件
 | memory.memsw.failcnt        | 申请内存和 swap 失败次数计数                                          |
 | memory.stat                 | 内存相关状态                                                          |
 
-memory.stat 中包含有的内存信息
+`memory.stat`中包含有的内存信息
 
 | 统计                      | 描述                                                                                                      | cadvisor 中对应指标    |
 | ------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------- |
@@ -98,17 +102,16 @@ memory.stat 中包含有的内存信息
 | hierarchical_memory_limit | 包含 memory cgroup 的层级的内存限制，单位为字节                                                           |
 | hierarchical_memsw_limit  | 包含 memory cgroup 的层级的内存加 swap 限制，单位为字节                                                   |
 
+Cgroup的相关内存指标有如下关系：
 ```
 active_anon + inactive_anon = anonymous memory + file cache for tmpfs + swap cache = rss + file cache for tmpfs
 active_file + inactive_file = cache - size of tmpfs
 working set = usage - total_inactive(k8s根据workingset 来判断是否驱逐pod)
 ```
 
-mstat 看到的 active/inactive memory 就分别是 active list 和 inactive list 中的内存大小。如果 inactive list 很大，表明在必要时可以回收的页面很多；而如果 inactive list 很小，说明可以回收的页面不多。
+mstat 看到的 active/inactive memory 就分别是`active list`和`inactive list`中的内存大小。如果 `inactive list`很大，表明在必要时可以回收的页面很多；而如果`inactive list`很小，说明可以回收的页面不多。
+
 Active/inactive memory 是针对用户进程所占用的内存而言的，内核占用的内存（包括 slab）不在其中。
-至于在源代码中看到的 ACTIVE_ANON 和 ACTIVE_FILE，分别表示 anonymous pages 和 file-backed pages。用户进程的内存页分为两种：与文件关联的内存（比如程序文件、数据文件所对应的内存页）和与文件无关的内存（比如进程的堆栈，用 malloc 申请的内存），前者称为 file-backed pages，后者称为 anonymous pages。File-backed pages 在发生换页(page-in 或 page-out)时，是从它对应的文件读入或写出；anonymous pages 在发生换页时，是对交换区进行读/写操作。
+至于在源代码中看到的 ACTIVE_ANON 和 ACTIVE_FILE，分别表示 anonymous pages 和 file-backed pages。
 
-## 参考
-
-- https://blog.freshtracks.io/a-deep-dive-into-kubernetes-metrics-part-3-container-resource-metrics-361c5ee46e66
-- https://github.com/google/cadvisor/blob/08f0c2397cbca790a4db0f1212cb592cc88f6e26/info/v1/container.go#L338:6
+用户进程的内存页分为两种：与文件关联的内存（比如程序文件、数据文件所对应的内存页）和与文件无关的内存（比如进程的堆栈，用 malloc 申请的内存），前者称为`file-backed pages`，后者称为`anonymous pages`。File-backed pages 在发生换页(page-in 或 page-out)时，是从它对应的文件读入或写出；anonymous pages 在发生换页时，是对交换区进行读/写操作。

@@ -10,6 +10,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
+import rehypeWrap from 'rehype-wrap';
 
 import { SITE } from './src/config.mjs';
 
@@ -26,7 +27,10 @@ export default defineConfig({
   output: 'static',
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
+    remarkPlugins: [
+      readingTimeRemarkPlugin
+    ],
+    rehypePlugins: [[rehypeWrap, {selector: 'table', wrapper: 'div.table-wrap'}]],
     syntaxHighlight: 'shiki',
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
@@ -37,8 +41,9 @@ export default defineConfig({
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       langs: [],
       // Enable word wrap to prevent horizontal scrolling
-      wrap: true
+      // wrap: true
     },
+    gfm: true
   },
 
   integrations: [
@@ -55,11 +60,11 @@ export default defineConfig({
     }),
     mdx(),
 
-    // ...whenExternalScripts(() =>
-    //   partytown({
-    //     config: { forward: ['dataLayer.push'] },
-    //   })
-    // ),
+    ...whenExternalScripts(() =>
+      partytown({
+        config: { forward: ['dataLayer.push'] },
+      })
+    ),
 
     compress({
       css: true,

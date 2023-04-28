@@ -1,6 +1,7 @@
 ---
 title: Docker多阶段构建
 date: 2018-08-16 17:56:37
+draft: true
 tags:
   - docker
 categories:

@@ -2,6 +2,7 @@
 title: 'Open Policy Agent vs Casbin'
 date: 2022-05-20T06:03:49Z
 draft: false
+description: "Golang访问工具库的对比"
 tags: ['authorization']
 categories: ['tool']
 ---

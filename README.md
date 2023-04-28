@@ -1,6 +1,6 @@
 # 🚀 Qingwave's Writings
 
-The Qingwave's website based on [Astro 2.0](https://astro.build/blog/astro-2/) + [Tailwind CSS](https://tailwindcss.com/), use the [AstroWind](https://github.com/onwidget/astrowind) theme.
+This my personal website based on [Astro 2.0](https://astro.build/blog/astro-2/) + [Tailwind CSS](https://tailwindcss.com/), use the [AstroWind](https://github.com/onwidget/astrowind) theme.
 
 ### Project structure
 
@@ -99,7 +99,7 @@ const CONFIG = {
   }),
 
   googleAnalyticsId: false, // Or "G-XXXXXXXXXX",
-  googleSiteVerificationId: '-8bOgP-V4XsxXZtXVx9DIXkdIuruvAYiY37vBg26acI', // Or some value,
+  googleSiteVerificationId: '', // Or some value,
 
   blog: {
     disabled: false,

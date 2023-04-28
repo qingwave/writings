@@ -1,6 +1,7 @@
 ---
 title: Pod一直显示Terminating
 date: 2018-10-26 10:41:03
+draft: true
 tags:
   - k8s
 categories:

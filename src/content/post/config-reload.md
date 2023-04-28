@@ -2,6 +2,7 @@
 title: '如何实现零宕机的配置热加载'
 date: 2022-09-30T10:37:17+08:00
 draft: false
+description: '在单机与分布式环境中实现配置监听与更新'
 tags: ['golang', 'etcd', 'linux', '分布式']
 categories: ['code']
 ---

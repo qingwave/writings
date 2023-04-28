@@ -65,7 +65,12 @@ APF 限流通过两种资源，`PriorityLevelConfigurations`定义隔离类型�
 - 功能较新，缺少生产环境验证
 
 **APF 测试**
-开启 APF，需要在 apiserver 配置`--feature-gates=APIPriorityAndFairness=true --runtime-config=flowcontrol.apiserver.k8s.io/v1alpha1=true`
+
+开启 APF，需要在 apiserver 配置
+```
+--feature-gates=APIPriorityAndFairness=true 
+--runtime-config=flowcontrol.apiserver.k8s.io/v1alpha1=true
+```
 
 开启后，获取默认的 FlowSchemas
 

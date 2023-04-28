@@ -2,6 +2,7 @@
 title: 'Golang+Vue轻松构建Web应用'
 date: 2022-01-20T02:33:38Z
 draft: false
+description: "从零开始搭建一个功能丰富的前后端应用"
 tags:
   - 'golang'
   - 'vue'

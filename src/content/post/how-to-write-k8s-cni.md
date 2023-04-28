@@ -1,6 +1,7 @@
 ---
 title: '手写一个Kubernetes CNI网络插件'
 date: 2022-04-01T05:56:01Z
+description: '基于Linux网桥与路由的MyCNI实现细节'
 draft: false
 tags: ['k8s', 'cni']
 categories: ['cloud']

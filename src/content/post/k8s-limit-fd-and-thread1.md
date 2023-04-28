@@ -101,15 +101,15 @@ $ docker run -d --ulimit nofile=100:200  cr.d.xiaomi.net/containercloud/alpine:w
 
 4. 并发 100 个 http 请求，受到 ulimit 限制
 
-   ```bash
-   / #  ab -n 1000000 -c 100 http://61.135.169.125:80/
-   This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
-   Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-   Licensed to The Apache Software Foundation, http://www.apache.org/
+```bash
+/ #  ab -n 1000000 -c 100 http://61.135.169.125:80/
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
 
-   Benchmarking 61.135.169.125 (be patient)
-   socket: No file descriptors available (24)
-   ```
+Benchmarking 61.135.169.125 (be patient)
+socket: No file descriptors available (24)
+```
 
 #### 线程限制
 
@@ -137,7 +137,7 @@ $ docker run -d  cr.d.xiaomi.net/containercloud/alpine:webtool top
 
 宿主机中查看 top 进程，显示 root 用户
 
-```
+```bash
 $ ps -ef |grep top
 root      4096  4080  0 15:01 ?        00:00:01 top
 ```
@@ -146,7 +146,7 @@ root      4096  4080  0 15:01 ?        00:00:01 top
 
 在容器中切换用户到 operator(uid 为 11)，执行 sleep 命令，主机中查看对应进程用户为 app，对应 uid 同样为 11
 
-```
+```bash
 / # id
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 / # su operator
@@ -163,13 +163,13 @@ app:x:11:0::/home/app:
 
 设置 ulimit nproc 限制 soft 10/hard 20，默认启动为 root 用户
 
-```
+```bash
 $ docker run -d --ulimit nproc=10:20  cr.d.xiaomi.net/containercloud/alpine:webtool top
 ```
 
 进入容器查看， fd soft 限制为 100 个
 
-```
+```bash
 / # ulimit -a
 -f: file size (blocks)             unlimited
 -t: cpu time (seconds)             unlimited
@@ -188,7 +188,7 @@ $ docker run -d --ulimit nproc=10:20  cr.d.xiaomi.net/containercloud/alpine:webt
 
 启动 30 个进程
 
-```
+```bash
 / # for i in `seq 30`;do sleep 100 &; done
 / # ps | wc -l
 36
@@ -196,7 +196,7 @@ $ docker run -d --ulimit nproc=10:20  cr.d.xiaomi.net/containercloud/alpine:webt
 
 切换到 operator 用户
 
-```
+```bash
 / # su operator
 # 启动多个进程，到第11个进程无法进行fork
 / $ for i in `seq 8`; do
@@ -209,7 +209,7 @@ sh: can't fork: Resource temporarily unavailable
 
 root 下查看
 
-```
+```bash
 / # ps -ef | grep operator
    79 operator  0:00 sh
    99 operator  0:00 sleep 100
@@ -230,7 +230,7 @@ root 下查看
 
 设置 ulimit nproc 限制 soft 3/hard 3，默认启动为 operator 用户,起 4 个容器，第四个启动失败
 
-```
+```bash
 $ docker run -d --ulimit nproc=3:3 --name nproc1 -u operator  cr.d.xiaomi.net/containercloud/alpine:webtool top
 eeb1551bf757ad4f112c61cc48d7cbe959185f65109e4b44f28085f246043e65
 $ docker run -d --ulimit nproc=3:3 --name nproc2 -u operator  cr.d.xiaomi.net/containercloud/alpine:webtool top
@@ -271,7 +271,7 @@ root     18735     1 14 11:19 ?        00:53:28 ./kubelet --v=1 --address=0.0.0.
 
 2. 在 pod 中起测试线程，root 下起 100 个线程
 
-```
+```bash
 / # for i in `seq 100`; do
 > sleep 1000 &
 > done
@@ -281,7 +281,7 @@ root     18735     1 14 11:19 ?        00:53:28 ./kubelet --v=1 --address=0.0.0.
 
 3. operator 下，创建线程受到限制，系统最多只能创建 150 个
 
-```
+```bash
 / # su operator
 / $
 / $ for i in `seq 100`; do
@@ -294,7 +294,7 @@ sh: can't fork: Resource temporarily unavailable
 
 4. 在 cgroup 中查看，pids 达到最大限制
 
-```
+```bash
 [root@node01 ~]# cat /sys/fs/cgroup/pids/kubepods/besteffort/pod8b61d4de-a7ad-11e9-b5b9-246e96ad0900/pids.current
 150
 [root@node01 ~]# cat /sys/fs/cgroup/pids/kubepods/besteffort/pod8b61d4de-a7ad-11e9-b5b9-246e96ad0900/pids.max
@@ -312,55 +312,55 @@ sysctl.conf 为机器级别的资源限制，root 用户可修改，目录项/et
 
 1. 测试容器中修改 sysctl.conf 文件
 
-   ```
-   $ docker run -d --ulimit nofile=100:200 cr.d.xiaomi.net/containercloud/alpine:webtool top
-   cb1250c8fd217258da51c6818fa2ce2e2f6e35bf1d52648f1f432e6ce579cf0d
-   $ docker exec -it cb1250c sh
+```bash
+$ docker run -d --ulimit nofile=100:200 cr.d.xiaomi.net/containercloud/alpine:webtool top
+cb1250c8fd217258da51c6818fa2ce2e2f6e35bf1d52648f1f432e6ce579cf0d
+$ docker exec -it cb1250c sh
 
-   / # ulimit -a
-   -f: file size (blocks)             unlimited
-   -t: cpu time (seconds)             unlimited
-   -d: data seg size (kb)             unlimited
-   -s: stack size (kb)                8192
-   -c: core file size (blocks)        unlimited
-   -m: resident set size (kb)         unlimited
-   -l: locked memory (kb)             64
-   -p: processes                      unlimited
-   -n: file descriptors               100
-   -v: address space (kb)             unlimited
-   -w: locks                          unlimited
-   -e: scheduling priority            0
-   -r: real-time priority             0
-   / #
-   / # echo 10 > /proc/sys/kernel/pid_max
-   sh: can't create /proc/sys/kernel/pid_max: Read-only file system
-   / # echo 10 > /proc/sys/kernel/pid_max
-   sh: can't create /proc/sys/kernel/pid_max: Read-only file system
-   / # echo "fs.file-max=5" >> /etc/sysctl.conf
-   / # sysctl -p
-   sysctl: error setting key 'fs.file-max': Read-only file system
-   ```
+/ # ulimit -a
+-f: file size (blocks)             unlimited
+-t: cpu time (seconds)             unlimited
+-d: data seg size (kb)             unlimited
+-s: stack size (kb)                8192
+-c: core file size (blocks)        unlimited
+-m: resident set size (kb)         unlimited
+-l: locked memory (kb)             64
+-p: processes                      unlimited
+-n: file descriptors               100
+-v: address space (kb)             unlimited
+-w: locks                          unlimited
+-e: scheduling priority            0
+-r: real-time priority             0
+/ #
+/ # echo 10 > /proc/sys/kernel/pid_max
+sh: can't create /proc/sys/kernel/pid_max: Read-only file system
+/ # echo 10 > /proc/sys/kernel/pid_max
+sh: can't create /proc/sys/kernel/pid_max: Read-only file system
+/ # echo "fs.file-max=5" >> /etc/sysctl.conf
+/ # sysctl -p
+sysctl: error setting key 'fs.file-max': Read-only file system
+```
 
 2. 以 priviledged 模式测试，谨慎测试
 
-   ```
-   $ cat /proc/sys/kernel/pid_max
-   32768
-   $ docker run -d -- --ulimit nofile=100:200 cr.d.xiaomi.net/containercloud/alpine:webtool top
-   $ docker exec -it pedantic_vaughan sh
-   / # cat /proc/sys/kernel/pid_max
-   32768
-   / # echo 50000 > /proc/sys/kernel/pid_max
-   / # cat /proc/sys/kernel/pid_max
-   50000
-   / # exit
-   $ cat /proc/sys/kernel/pid_max
-   50000 # 宿主机的文件也变成50000
-   ```
+```bash
+$ cat /proc/sys/kernel/pid_max
+32768
+$ docker run -d -- --ulimit nofile=100:200 cr.d.xiaomi.net/containercloud/alpine:webtool top
+$ docker exec -it pedantic_vaughan sh
+/ # cat /proc/sys/kernel/pid_max
+32768
+/ # echo 50000 > /proc/sys/kernel/pid_max
+/ # cat /proc/sys/kernel/pid_max
+50000
+/ # exit
+$ cat /proc/sys/kernel/pid_max
+50000 # 宿主机的文件也变成50000
+```
 
 3. 总结
    由于 docker 隔离的不彻底，在 docker 中修改 sysctl 会覆盖主机中的配置，不能用来实现容器级别资源限制
-   limits.conf 可以在容器中设置，效果同 ulimit
+   limits.conf 可以在容器中设置，效果同 ulimit。
 
 ## 结论
 

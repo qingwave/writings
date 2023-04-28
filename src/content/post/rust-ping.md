@@ -2,6 +2,7 @@
 title: 'Rust初探: 实现一个Ping'
 date: 2022-11-24T16:50:14+08:00
 draft: false
+description: 'Rust + Ping = Ring'
 tags: ['rust']
 categories: ['code']
 ---

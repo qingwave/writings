@@ -2,6 +2,7 @@
 title: 'Kubernetes中的Golang设计模式'
 date: 2022-04-14T07:18:45Z
 draft: false
+description: "跟着K8s学编程"
 tags: ['golang', 'k8s', '程序设计']
 categories: ['code']
 ---
