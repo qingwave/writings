@@ -6,7 +6,7 @@ tags:
   - hexo
   - blog
 categories:
-  - tool
+  - 工具
 ---
 
 学到的分享出来才更有意义，春节前事不多使用 hexo 建立了个人 blog，记录下。

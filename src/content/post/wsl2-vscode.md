@@ -6,7 +6,7 @@ tags:
   - wsl
 date: 2020-02-11 23:51:51
 categories:
-  - tool
+  - 工具
 ---
 
 一直以来使用 Ubuntu 开发，前两天 Ubuntu 桌面环境崩了，一些工作软件在 Ubuntu 下很不好用，恰好 WSL2(Windows Linux 子系统)发布已经有一段日子，而且支持了 Docker，上手看看可用性如何。

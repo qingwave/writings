@@ -8,7 +8,7 @@ tags:
 date: 2021-11-12 09:17:35
 categories:
   - cloud
-  - tool
+  - 工具
 ---
 
 在 k8s 云环境中，我们需要在容器内抓包进行 Debug, 但通常大多容器都没有安装 tcpdump 以及其他网络工具；在托管 k8s 中我们想登录 node，不是没权限就是步骤太麻烦。本文的主角`nsenter`正是很擅长解决这些问题，`nsenter`可以进入指定`namespace`的工具，一般用来在容器环境中进行调试。

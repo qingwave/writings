@@ -4,7 +4,8 @@ date: 2022-05-20T06:03:49Z
 draft: false
 description: "Golang访问工具库的对比"
 tags: ['authorization']
-categories: ['tool']
+categories: 
+- 工具
 ---
 
 大型项目中基本都包含有复杂的访问控制策略，特别是在一些多租户场景中，例如 Kubernetes 中就支持 RBAC，ABAC 等多种授权类型。在 Golang 中目前比较热门的访问控制框架有[Open Policy Agent](https://www.openpolicyagent.org/)与[Casbin](https://casbin.org/)，本文主要分析其异同与选型策略。

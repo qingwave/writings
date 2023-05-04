@@ -4,7 +4,7 @@ date: 2018-09-27 13:51:52
 tags:
   - linux
 categories:
-  - linux
+  - 系统
 ---
 
 ## 背景

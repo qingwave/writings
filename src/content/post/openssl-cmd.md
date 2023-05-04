@@ -7,7 +7,7 @@ tags:
   - openssl
 date: 2019-05-10 22:45:12
 categories:
-  - tool
+  - 工具
 ---
 
 ### 输出 x509 证书信息
