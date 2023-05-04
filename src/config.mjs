@@ -35,7 +35,7 @@ const CONFIG = {
     },
 
     list: {
-      pathname: 'blogs', // Blog main path, you can change this to "articles" (/articles)
+      pathname: 'blog', // Blog main path, you can change this to "articles" (/articles)
       noindex: false,
       disabled: false,
     },

@@ -6,6 +6,7 @@ description: "从零开始搭建一个功能丰富的前后端应用"
 tags:
   - 'golang'
   - 'vue'
+  - 'tailwind'
 categories:
   - 'code'
   - '前端'

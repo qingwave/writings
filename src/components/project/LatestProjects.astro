@@ -8,12 +8,13 @@ export interface Props {
   text?: string;
   link?: string;
   information?: string;
+  count?: number;
 }
 
 const {
   title = await Astro.slots.render('title'),
   text = 'View all projects',
-  link = '/projects',
+  link = '/project',
   information = await Astro.slots.render('information'),
   count = 2,
 } = Astro.props;

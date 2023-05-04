@@ -8,7 +8,7 @@ draft: true
 category: Tutorials
 tags:
   - astro
-  - tailwind css
+  - TailwindCSS
 canonical: https://astrowind.vercel.app/get-started-website-with-astro-tailwind-css
 ---
 
