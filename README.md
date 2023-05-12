@@ -52,7 +52,6 @@ This my personal website based on [Astro 2.0](https://astro.build/blog/astro-2/)
 ### Dependencies
 
 - node >=16.12.0
-- pnpm
 
 ### Commands
 

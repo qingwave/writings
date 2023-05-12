@@ -14,6 +14,8 @@ categories:
 
 最近疫情在家，空闲时间比较多，整理下之前写的 Golang 项目[Weave](https://github.com/qingwave/weave)，补充了一些功能，加了前端实现。作为一个 Web 应用模板，也算是功能比较齐全了，现将开发过程中遇到的一些问题、项目特性总结下。
 
+快速预览 [Demo](https://qingwave.github.io/weave/), 部署在Github Pages, 只提供前端功能，不包含后端与数据库。
+
 ## 介绍
 
 Weave 是一个基于`Go+Vue`实现的 Web 应用模板，支持前后端，拥有完整的认证、存储、Restful API 等功能。
@@ -146,6 +148,11 @@ Vue 文档以及示例很详细，上手也挺快。主要是 CCS 不熟悉，�
 搭建了一个比较完整的管理平台，自己还是挺满意的，后面会不断优化，加一些其他特性。
 
 ## 运行
+
+通过Docker快速预览前端, 打开https://localhost:8080
+```bash
+docker run -d -p 8080:80 --name weave-frontend qingwave/weave-frontend:mock
+```
 
 后端本地运行，需要依赖 Docker，Makefile 文件只在 Linux 下有效，其他平台请自行尝试
 
