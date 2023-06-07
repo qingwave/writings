@@ -31,9 +31,7 @@ import { SITE } from '~/config.mjs';
     }
   }
 
-  function changeGiscusTheme() {
-    const theme = localStorage.theme === 'dark' ? 'dark' : 'light';
-
+  function changeGiscusTheme(theme) {
     function sendMessage(message) {
       const iframe = document.querySelector('iframe.giscus-frame');
       if (!iframe) return;
@@ -64,7 +62,7 @@ import { SITE } from '~/config.mjs';
       }
       document.documentElement.classList.toggle('dark');
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-      changeGiscusTheme();
+      changeGiscusTheme(localStorage.theme);
     });
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {

@@ -36,13 +36,13 @@ posts.map((post) => {
       <Headline2 title="分类" />
       <div class="flex flex-wrap text-lg font-medium max-w-3xl">
         {[...categories].map(([category, val]) => (
-          <div class="rounded-lg bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-6 py-2 px-4">
+          <div class="rounded-full border border-slate-500 dark:border-slate-100 inline-block mr-4 mb-6 py-1 px-3">
             {BLOG?.category?.disabled ? (
               category
             ) : (
               <a
                 href={getPermalink(category, 'category')}
-                class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
+                class="hover:text-primary dark:hover:text-blue-400"
               >
                 {category}
                 <span class="text-sm text-slate-400">{val}</span>
@@ -61,13 +61,13 @@ posts.map((post) => {
       <Headline2 title="标签" />
       <div class="flex flex-wrap text-lg font-medium max-w-3xl">
         {[...tags].map(([tag, val]) => (
-          <div class="rounded-lg bg-gray-100 dark:bg-slate-700 inline-block mr-4 mb-6 py-2 px-4">
+          <div class="rounded-full border border-slate-500 dark:border-slate-100 inline-block mr-4 mb-6 py-1 px-3">
             {BLOG?.tag?.disabled ? (
               tag
             ) : (
               <a
                 href={getPermalink(tag, 'tag')}
-                class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
+                class="hover:text-primary dark:hover:text-blue-400"
               >
                 {tag}
                 <span class="text-sm text-slate-400">{val}</span>

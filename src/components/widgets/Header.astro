@@ -80,11 +80,9 @@ const {
                   </>
                 ) : (
                   <a
-                    class:list={[
-                      'hover:text-gray-900 dark:hover:text-white visited:font-bold px-4 py-3 flex items-center transition duration-150 ease-in-out',
-                      { 'font-bold': Astro.url.pathname == href },
-                    ]}
+                    class='hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center'
                     href={href}
+                    memu-item
                   >
                     {text}
                   </a>
@@ -133,3 +131,19 @@ const {
     </div>
   </div>
 </header>
+
+<script>  
+  function handleMenu(elem) {
+    const href = elem.getAttribute('href');
+    if (window.location.pathname == href || window.location.origin + location == href) {
+      elem.classList.toggle('font-bold')
+    } else {
+      elem.classList.remove('font-bold')
+    }
+  }
+
+  const elems = document.querySelectorAll('[memu-item]');
+  elems.forEach((elem) => {
+    handleMenu(elem)
+  });
+</script>
