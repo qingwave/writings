@@ -40,7 +40,10 @@ const {
 } = Astro.props;
 ---
 
-<header class:list={[{ sticky: isSticky, relative: !isSticky }, 'top-0 z-40 flex-none py-4 md:py-8 mt-8 w-full']} id="header">
+<header
+  class:list={[{ sticky: isSticky, relative: !isSticky }, 'top-0 z-40 flex-none py-4 md:py-8 mt-8 w-full']}
+  id="header"
+>
   <div class="px-6 sm:px-6 mx-auto md:flex max-w-3xl md:justify-between">
     <div class="md:flex items-center">
       <div class:list={[{ 'mr-auto': position === 'right' }, 'flex justify-between']}>
@@ -80,7 +83,7 @@ const {
                   </>
                 ) : (
                   <a
-                    class='hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center'
+                    class="hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center"
                     href={href}
                     memu-item
                   >
@@ -132,18 +135,19 @@ const {
   </div>
 </header>
 
-<script>  
+<script>
   function handleMenu(elem) {
     const href = elem.getAttribute('href');
-    if (window.location.pathname == href || window.location.origin + location == href) {
-      elem.classList.toggle('font-bold')
+    let keys = [window.location.pathname, window.location.href];
+    if (keys.includes(href) || keys.includes(href + '/')) {
+      elem.classList.toggle('font-bold');
     } else {
-      elem.classList.remove('font-bold')
+      elem.classList.remove('font-bold');
     }
   }
 
   const elems = document.querySelectorAll('[memu-item]');
   elems.forEach((elem) => {
-    handleMenu(elem)
+    handleMenu(elem);
   });
 </script>
