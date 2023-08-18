@@ -9,6 +9,9 @@ categories:
   - cloud
 ---
 
+> 2023/8/16 更新: 
+> k8s 1.28已经支持了Sidecar，更多可以查看[文档](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#api-for-sidecar-containers)
+
 ## 背景
 
 在多个容器的 Pod 中，通常业务容器需要依赖 sidecar。启动时 sidecar 需要先启动，退出时 sidecar 需要在业务容器退出后再退出。k8s 目前对于 sidecar 的生命周期比较有争议，见[issue](https://github.com/kubernetes/enhancements/issues/753)、[sidecarcontainers](https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/0753-sidecarcontainers.md)。
