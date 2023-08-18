@@ -2,7 +2,7 @@
 date: 2023-08-16T09:20:10.001Z
 title: 千呼万唤始出来的K8s Sidecar
 draft: false
-description: ''
+description: '新版Sidecar使用与解析'
 excerpt: ''
 image: ''
 categories: ['cloud']
