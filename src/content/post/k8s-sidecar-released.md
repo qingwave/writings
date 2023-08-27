@@ -85,7 +85,7 @@ logging
 
 ## 源码分析
 
-相关源码在[kubernetes#116429](https://github.com/kubernetes/kubernetes/pull/116)。
+相关源码在[kubernetes#116429](https://github.com/kubernetes/kubernetes/pull/116429)。
 
 这次的Sidecar是通过初始化容器实现的，在`Container`类型中添加了额外的字段`RestartPolicy`，目前只支持`Always`策略:
 ```go
