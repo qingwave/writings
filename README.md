@@ -1,6 +1,6 @@
-# 🚀 Qingwave's Writings
+# Qingwave's Writings
 
-This my personal website based on [Astro 2.0](https://astro.build/blog/astro-2/) + [Tailwind CSS](https://tailwindcss.com/), use the [AstroWind](https://github.com/onwidget/astrowind) theme.
+This my personal website based on [Astro](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/), use the [AstroWind](https://github.com/onwidget/astrowind) theme.
 
 ### Project structure
 

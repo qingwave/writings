@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import Image from '~/components/common/Image.astro';
 
 import PostTags from '~/components/blog/Tags.astro';
 import SocialShare from '~/components/common/SocialShare.astro';
@@ -17,6 +17,7 @@ export interface Props {
 }
 
 const { post, url, share = false } = Astro.props;
+const { Content } = post;
 ---
 
 <section class="py-8 sm:py-16 lg:py-20 mx-auto max-w-3xl">
@@ -52,19 +53,17 @@ const { post, url, share = false } = Astro.props;
 
       {
         post.image ? (
-          <Picture
+          <Image
             src={post.image}
-            class="max-w-fit lg:max-w-3xl mx-auto mb-6 shadow-lg sm:rounded-md bg-gray-400 dark:bg-slate-700"
+            class="max-w-fit lg:max-w-3xl mx-auto mb-6 shadow sm:rounded-md bg-gray-400 dark:bg-slate-700"
             widths={[400, 900]}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post.title || ''}
             loading="eager"
-            aspectRatio={16 / 9}
             width={900}
             height={506}
             loading="eager"
             decoding="async"
-            background={undefined}
           />
         ) : (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
@@ -74,13 +73,13 @@ const { post, url, share = false } = Astro.props;
       }
     </header>
     <div
-      class="mx-auto px-6 sm:px-6 max-w-3xl break-words overflow-x-hidden prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
+      class="mx-auto px-6 sm:px-6 max-w-3xl break-words overflow-x-hidden prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow mt-8"
     >
       {
-        post.Content ? (
+        Content ? (
           <>
             {/* @ts-ignore */}
-            <post.Content />
+            <Content />
           </>
         ) : (
           <Fragment set:html={post.content} />

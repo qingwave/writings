@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }) {
     }
   });
 
-  return Array.from(categories).map((category: string) =>
+  return Array.from(categories).flatMap((category: string) =>
     paginate(
       posts.filter((post) => post.category?.includes(category)),
       {

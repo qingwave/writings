@@ -9,8 +9,6 @@ import { fetchPosts } from '~/utils/blog';
 import { TAG_BASE } from '~/utils/permalinks';
 import Headline from '~/components/blog/Headline.astro';
 
-import { Icon } from 'astro-icon';
-
 export async function getStaticPaths({ paginate }) {
   if (BLOG?.disabled || BLOG?.tag?.disabled) return [];
 
@@ -20,7 +18,7 @@ export async function getStaticPaths({ paginate }) {
     Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
   });
 
-  return Array.from(tags).map((tag: string) =>
+  return Array.from(tags).flatMap((tag: string) =>
     paginate(
       posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.toLowerCase() === tag)),
       {

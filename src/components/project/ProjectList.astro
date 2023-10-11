@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import Image from '~/components/common/Image.astro';
 import ArrowMotion from '~/components/common/ArrowMotion.astro';
 import { Project } from '~/types';
 
@@ -16,15 +16,14 @@ const { projects } = Astro.props;
       <li>
         <a href={`${project.href}`}>
           <div class="">
-            <Picture
+            <Image
               src={project.img}
               alt=""
               sizes="(max-width: 800px) 100vw, 800px"
               widths={[200, 400, 800]}
-              aspectRatio="16:9"
-              background="#ffffff"
-              fit="cover"
-              position="center"
+              height=200
+              // aspectRatio="16:9"
+              layout="constrained"
               loading={index <= 2 ? 'eager' : 'lazy'}
               decoding={index <= 2 ? 'sync' : 'async'}
               class="w-full rounded-md hover:brightness-50 shadow-md"
