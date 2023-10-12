@@ -40,6 +40,7 @@
     "reading-time": "^1.5.0",
     "rehype-wrap": "^1.1.0",
     "remark-toc": "^9.0.0",
+    "svgo": "^2.8.0",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   },

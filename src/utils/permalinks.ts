@@ -1,4 +1,4 @@
-import slugify from 'limax';
+// import slugify from 'limax';
 
 import { SITE, BLOG } from '~/config.mjs';
 import { trim } from '~/utils/utils';
