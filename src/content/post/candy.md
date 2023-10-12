@@ -1,6 +1,6 @@
 ---
 title: 糖
-subtitle: 记某人的大痘
+excerpt: 记某人的大痘
 date: 2020-02-02 14:36:59
 author: 'Qinng'
 toc: false
