@@ -2,7 +2,7 @@
 date: 2023-10-30T08:00:19.746Z
 title: ChatGPT驱动开发
 draft: false
-description: '尝试完成由ChatGPT从零实现一个项目'
+description: '尝试完全由ChatGPT从零实现一个项目'
 excerpt: ''
 image: ''
 categories: ['工具']
@@ -16,7 +16,7 @@ tags: ['chatgpt']
 ### 第一版
 没有什么特别明确地需求，也是灵光一闪，决定让`ChatGPT`写一个自己的套壳网站。
 
-首先提了个很概括的需求，ChatGPT(3.5)回复的很详细，包含了`python`的后端，已经前端的代码，还额外提供了安装依赖、运行方式等。
+首先提了个很概括的需求，ChatGPT(3.5)回复的很详细，包含了`python`的后端和前端的代码，还额外提供了安装依赖、运行方式等。
 
 <table class="flex">
   <tr class="flex items-center">
@@ -33,7 +33,7 @@ tags: ['chatgpt']
 
 ### 界面优化
 
-第一版界面太简单了，所以我提出页面美化已经连续对话的需求，`ChatGPT`基本能够根据需求做一些调整，但也会遇到一些报错，比如引用过期的API、函数为定义等，通过不断询问也能够修复。
+第一版界面太简单了，所以我提出了页面美化已经连续对话的需求，`ChatGPT`基本能够根据需求做一些调整，但也会遇到一些报错，比如引用过期的API、函数未定义等，通过不断询问也基本能够修复。
 
 添加CSS后，界面如下：
 ![](/img/mygpt/mygpt5.png)
