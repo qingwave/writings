@@ -66,7 +66,7 @@ tags: ['chatgpt']
 </table>
 
 多次调整后得到，还是比较符合预期的
-![](https://github.com/qingwave/mygpt/raw/main/doc/mygpt.png)
+![](/img/mygpt/mygpt.png)
 
 
 ## 总结

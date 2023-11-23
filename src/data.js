@@ -102,17 +102,31 @@ export const projectData = [
     href: 'https://github.com/qingwave/gocorex',
   },
   {
-    title: 'Ring',
-    description: 'Rust + Ping -> Ring, Rust 实现的 Ping',
-    year: 2023,
-    img: getAsset('/img/blog/ring.jpg'),
-    href: 'https://github.com/qingwave/ring',
-  },
-  {
     title: 'qingwave.github.io',
     description: '基于 Astro 与 Tailwind CSS 开发的个人网站',
     year: 2023,
     img: getAsset('/img/blog/blog-2023.jpg'),
     href: getHomePermalink(),
+  },
+  {
+    title: 'MyGPT',
+    description: 'ChatGPT驱动开发的聊天应用',
+    year: 2023,
+    img: getAsset('/img/mygpt/mygpt.png'),
+    href: 'https://github.com/qingwave/mygpt',
+  },
+  {
+    title: 'MoveMate 久坐提醒',
+    description: '一个久坐提醒浏览器扩展',
+    year: 2023,
+    img: getAsset('/img/blog/movemate.png'),
+    href: 'https://github.com/qingwave/movemate',
+  },
+  {
+    title: 'Ring',
+    description: 'Rust + Ping -> Ring, Rust 实现的 Ping',
+    year: 2023,
+    img: getAsset('/img/blog/ring.jpg'),
+    href: 'https://github.com/qingwave/ring',
   },
 ];
