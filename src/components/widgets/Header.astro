@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import ToggleMenu from '~/components/common/ToggleMenu.astro';
@@ -59,7 +59,7 @@ const {
         class="items-center w-full md:w-auto hidden md:flex pr-4 dark:text-slate-200 h-[calc(100vh-72px)] md:h-auto overflow-y-auto md:overflow-visible md:mx-5"
         aria-label="Main navigation"
       >
-        <ul class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto text-xl md:text-base">
+        <ul class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto md:text-base">
           {
             links.map(({ text, href, links }) => (
               <li class={links?.length ? 'dropdown' : ''}>
@@ -83,7 +83,7 @@ const {
                   </>
                 ) : (
                   <a
-                    class="hover:text-gray-600 hover:font-semibold dark:hover:text-white px-4 py-3 flex items-center"
+                    class="text-neutral-500 hover:text-neutral-900 font-medium dark:hover:text-white px-4 py-3 flex items-center"
                     href={href}
                     memu-item
                   >
@@ -135,7 +135,7 @@ const {
   </div>
 </header>
 
-<script>
+<!-- <script>
   function handleMenu(elem) {
     const href = elem.getAttribute('href');
     let keys = [window.location.pathname, window.location.href];
@@ -150,4 +150,4 @@ const {
   elems.forEach((elem) => {
     handleMenu(elem);
   });
-</script>
+</script> -->

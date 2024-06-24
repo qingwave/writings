@@ -3,7 +3,7 @@ import { getBlogPermalink, getHomePermalink, getPermalink, getAsset } from './ut
 export const headerData = {
   links: [
     {
-      text: '写作',
+      text: '文章',
       href: getBlogPermalink(),
     },
     {

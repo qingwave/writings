@@ -20,7 +20,7 @@ const { post, url, share = false } = Astro.props;
 const { Content } = post;
 ---
 
-<section class="py-8 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+<section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
     <header class={post.image ? '' : ''}>
       <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
@@ -73,7 +73,7 @@ const { Content } = post;
       }
     </header>
     <div
-      class="mx-auto px-6 sm:px-6 max-w-3xl break-words overflow-x-hidden prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow mt-8"
+      class="mx-auto px-6 sm:px-6 max-w-3xl break-words overflow-x-hidden prose prose-lg 3xl:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow mt-8"
     >
       {
         Content ? (

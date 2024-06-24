@@ -1,15 +1,19 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig } from 'astro/config';
+import { defineConfig, squooshImageService } from 'astro/config';
 
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
+import icon from 'astro-icon';
 import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
-import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
-import rehypeWrap from 'rehype-wrap';
+import {
+  readingTimeRemarkPlugin,
+  responsiveTablesRehypePlugin,
+  lazyImagesRehypePlugin,
+} from './src/utils/frontmatter.mjs';
 
 import { SITE } from './src/config.mjs';
 
@@ -26,10 +30,8 @@ export default defineConfig({
   output: 'static',
 
   markdown: {
-    remarkPlugins: [
-      readingTimeRemarkPlugin
-    ],
-    rehypePlugins: [[rehypeWrap, {selector: 'table', wrapper: 'div.table-wrap'}]],
+    remarkPlugins: [readingTimeRemarkPlugin],
+    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
     syntaxHighlight: 'shiki',
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
@@ -45,6 +47,10 @@ export default defineConfig({
     gfm: true
   },
 
+  image: {
+    service: squooshImageService(),
+  },
+
   integrations: [
     tailwind({
       config: {
@@ -55,6 +61,12 @@ export default defineConfig({
       changefreq: 'daily'
     }),
     mdx(),
+    icon({
+      include: {
+        tabler: ['*'],
+        ic: ['*'],
+      }
+    }),
 
     ...whenExternalScripts(() =>
       partytown({
