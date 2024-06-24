@@ -44,7 +44,7 @@ Weave 是一个基于`Go+Vue`实现的 Web 应用模板，支持前后端，拥�
 主要界面如下：
 
 - 登录界面
-  ![login](https://github.com/qingwave/weave/raw/master/document/img/login.png)
+  ![login](/img/blog/weave.png)
 - Dashboard 界面
   ![dashboard](https://github.com/qingwave/weave/raw/master/document/img/dashboard.png)
 - 应用界面

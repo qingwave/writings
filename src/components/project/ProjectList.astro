@@ -23,7 +23,7 @@ const { projects } = Astro.props;
               height=200
               aspectRatio="16:9"
               layout="constrained"
-              loading={index <= 2 ? 'eager' : 'lazy'}
+              loading='lazy'
               decoding={index <= 2 ? 'sync' : 'async'}
               class="w-full rounded-md border border-neutral-200 hover:shadow-lg"
             />

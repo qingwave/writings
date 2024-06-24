@@ -44,44 +44,41 @@ const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
     )
   }
   <div class="mt-2">
-    <header>
-      <span class="text-sm leading-6 text-slatey-700 dark:text-slate-400">
-        <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
-        {
-          post.category &&
-            Array.from(post.category).map((category) => (
-              <>
-                {' '}
-                ·{' '}
-                <a class="capitalize hover:underline" href={getPermalink(category, 'category')}>
-                  {category.replaceAll('-', ' ')}
-                </a>
-              </>
-            ))
-        }
-      </span>
+    <span class="text-sm leading-6 text-slatey-700 dark:text-slate-400">
+      <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
+      {
+        post.category &&
+          Array.from(post.category).map((category) => (
+            <>
+              {' '}
+              ·{' '}
+              <a class="capitalize hover:underline" href={getPermalink(category, 'category')}>
+                {category.replaceAll('-', ' ')}
+              </a>
+            </>
+          ))
+      }
+    </span>
+
+    <a class="hover:text-primary dark:hover:text-slate-100" href={link}>
       <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
         <div class="flex items-center content-center">
-          {
-            link ? (
-              <a class="hover:text-slate-600 dark:hover:text-slate-100 transition ease-in duration-200" href={link}>
-                {post.title}
-              </a>
-            ) : (
-              post.title
-            )
-          }
+          {post.title}
         </div>
       </h2>
-    </header>
 
-    {(post.excerpt || post.description) && <p class="flex-grow text-muted dark:text-slate-400 text-lg">{post.excerpt || post.description}</p>}
-    {
-      showTag && (
-        <footer class="mt-2">
-          <PostTags tags={post.tags} />
-        </footer>
-      )
-    }
+      {
+        (post.excerpt || post.description) && (
+          <p class="flex-grow text-muted dark:text-slate-400 text-lg">{post.excerpt || post.description}</p>
+        )
+      }
+      {
+        showTag && (
+          <footer class="mt-2">
+            <PostTags tags={post.tags} />
+          </footer>
+        )
+      }
+    </a>
   </div>
 </article>

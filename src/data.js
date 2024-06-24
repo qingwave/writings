@@ -60,7 +60,7 @@ export const projectData = [
     title: 'Weave',
     description: 'Golang 与 Vue 实现的前后端管理系统，集成多种常用功能',
     year: 2022,
-    img: 'https://github.com/qingwave/weave/raw/master/document/img/login.png',
+    img: '/img/blog/weave.png',
     href: 'https://github.com/qingwave/weave',
     github: 'https://github.com/qingwave/weave',
     weight: 2,
