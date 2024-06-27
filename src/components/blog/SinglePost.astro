@@ -16,6 +16,7 @@ export interface Props {
   share?: boolean;
 }
 
+const showImg = false;
 const { post, url, share = false } = Astro.props;
 const { Content } = post;
 ---
@@ -52,7 +53,7 @@ const { Content } = post;
       </p>
 
       {
-        post.image ? (
+        post.image && showImg ? (
           <Image
             src={post.image}
             class="max-w-fit lg:max-w-3xl mx-auto mb-6 shadow sm:rounded-md bg-gray-400 dark:bg-slate-700"

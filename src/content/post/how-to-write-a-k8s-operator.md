@@ -4,6 +4,7 @@ author: qinng
 toc: true
 comments: true
 description: "借助Kubebuilder实现2048游戏的控制器"
+image: /img/blog/crd_mygame.png
 tags:
   - k8s
 date: 2021-08-12 02:58:47

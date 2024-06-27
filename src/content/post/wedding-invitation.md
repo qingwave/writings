@@ -4,6 +4,7 @@ date: 2022-09-06T14:30:30+08:00
 draft: false
 description: '为自己的婚礼添加点不一样'
 tags: ['小程序']
+image: /img/wedding/wedding.jpg
 categories: ['code', '前端']
 ---
 

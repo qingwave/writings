@@ -1,0 +1,41 @@
+---
+// Components/TabNavContainer.astro
+
+const { tabs, selectedTab, onTabClick } = Astro.props;
+---
+
+<style>
+  .tab-link {
+    position: relative;
+    padding: 0 0.75rem;
+    overflow: hidden;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab-link.active {
+    color: var(--color-neutral-900);
+    border-color: var(--color-neutral-900);
+  }
+</style>
+
+<section>
+  <div class="mb-6 flex flex-wrap gap-2" id="tabs-container">
+    {
+      tabs.map((tab, index) => (
+        <a
+          key={index}
+          href="#"
+          class={`text-neutral-400 hover:text-neutral-900 tab-link ${tab === selectedTab ? 'active' : ''}`}
+          data-tab={tab.toLowerCase().replace(' ', '-')}
+          onClick={(e) => {
+            e.preventDefault();
+            onTabClick(tab);
+          }}
+        >
+          <span>{tab}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>

@@ -1,5 +1,4 @@
 ---
-import Image from '~/components/common/Image.astro';
 import PostTags from '~/components/blog/Tags.astro';
 
 import { BLOG } from '~/config.mjs';
@@ -17,68 +16,50 @@ export interface Props {
 
 const { post, showImage = true, showTag = false } = Astro.props;
 const image = await findImage(post.image);
-
 const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
 ---
 
-<article class={`max-w-3xl mx-auto md:max-w-3xl grid gap-6 md:gap-8 ${image && showImage ? 'md:grid-cols-2' : ''}`}>
-  {
-    showImage && image && (
-      <a class="relative block group" href={link ?? 'javascript:void(0)'}>
-        <div class="relative h-0 pb-[56.25%] md:pb-[75%] md:h-72 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
-          {image && (
-            <Image
-              src={image}
-              class="absolute inset-0 object-cover w-full h-full mb-6 rounded shadow-md bg-gray-400 dark:bg-slate-700"
-              widths={[400, 900]}
-              width={900}
-              sizes="(max-width: 900px) 400px, 900px"
-              alt={post.title}
-              aspectRatio="16:9"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-        </div>
-      </a>
-    )
-  }
-  <div class="mt-2">
-    <span class="text-sm leading-6 text-slatey-700 dark:text-slate-400">
-      <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
-      {
-        post.category &&
-          Array.from(post.category).map((category) => (
-            <>
-              {' '}
-              ·{' '}
-              <a class="capitalize hover:underline" href={getPermalink(category, 'category')}>
-                {category.replaceAll('-', ' ')}
-              </a>
-            </>
-          ))
-      }
-    </span>
+<article class="flex max-w-3xl mx-auto gap-6 md:gap-8 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg px-2 py-4 transition-transform transform hover:scale-105">
+  <div class={`flex flex-col justify-between w-full ${showImage && image ? 'md:w-2/3' : ''}`}>
+    <div class="mt-1">
+      <span class="text-sm leading-6 mb-1 text-slate-700 dark:text-slate-400">
+        <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
+        {post.category && Array.from(post.category).map((category) => (
+          <>
+            {' '}·{' '}
+            <a class="capitalize hover:underline" href={getPermalink(category, 'category')}>
+              {category.replaceAll('-', ' ')}
+            </a>
+          </>
+        ))}
+      </span>
 
-    <a class="hover:text-primary dark:hover:text-slate-100" href={link}>
-      <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
-        <div class="flex items-center content-center">
+      <a href={link}>
+        <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-2 font-heading dark:text-slate-300">
           {post.title}
-        </div>
-      </h2>
-
-      {
-        (post.excerpt || post.description) && (
-          <p class="flex-grow text-muted dark:text-slate-400 text-lg">{post.excerpt || post.description}</p>
-        )
-      }
-      {
-        showTag && (
+        </h2>
+        {(post.excerpt || post.description) && (
+          <p class="text-muted dark:text-slate-400 text-lg">
+            {post.excerpt || post.description}
+          </p>
+        )}
+        {showTag && (
           <footer class="mt-2">
             <PostTags tags={post.tags} />
           </footer>
-        )
-      }
-    </a>
+        )}
+      </a>
+    </div>
   </div>
+  {showImage && image && (
+    <a class="relative hidden md:block w-48 h-32 ml-auto overflow-hidden" href={link ?? 'javascript:void(0)'}>
+      <img
+        src={image}
+        class="object-cover w-full h-full rounded border"
+        alt={post.title}
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  )}
 </article>

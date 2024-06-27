@@ -4,7 +4,7 @@ title: ChatGPT驱动开发
 draft: false
 description: '尝试完全由ChatGPT从零实现一个项目'
 excerpt: ''
-image: ''
+image: '/img/mygpt/mygpt.png'
 categories: ['工具']
 tags: ['chatgpt']
 ---

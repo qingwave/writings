@@ -32,7 +32,15 @@
   }
 
   .link {
-    @apply font-medium border-b border-slate-700 dark:border-slate-300 no-underline hover:opacity-80;
+    @apply font-medium border-b border-slate-700 dark:border-slate-300 no-underline hover:text-primary;
+  }
+
+  .tab {
+    @apply relative px-3 overflow-hidden inline-block border-b-2 border-transparent;
+  }
+  
+  .tab.active {
+    @apply text-neutral-900 border-neutral-900;
   }
 }
 
@@ -61,75 +69,6 @@
 
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
-}
-
-#cta {
-  @apply transition;
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  opacity: 0;
-}
-
-#cta .arrow {
-  left: 50%;
-}
-
-.arrow {
-  @apply text-gray-600 dark:text-gray-500;
-  position: absolute;
-  bottom: 0;
-  margin-left: 0px;
-  width: 14px;
-  height: 14px;
-  transform-origin: 50% 50% 0;
-  display: flex;
-}
-
-.secondary {
-  margin-left: 8px;
-}
-
-.arrow-motion:hover #cta {
-  opacity: 1;
-}
-
-@keyframes bounceAlpha {
-  0% {
-    opacity: 1;
-    transform: translateX(0px) scale(1);
-  }
-  25% {
-    opacity: 0;
-    transform: translateX(10px) scale(0.9);
-  }
-
-  26% {
-    opacity: 0;
-    transform: translateX(-10px) scale(0.9);
-  }
-
-  55% {
-    opacity: 1;
-    transform: translateX(0px) scale(1);
-  }
-}
-
-.arrow-motion:hover .arrow {
-  animation-name: bounceAlpha;
-  animation-delay: 0.1s;
-  animation-duration: 1.6s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-.arrow-motion:hover .primera {
-  animation-name: bounceAlpha;
-  animation-duration: 1.6s;
-  animation-delay: 0.3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 
 .table-wrap {

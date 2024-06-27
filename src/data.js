@@ -35,6 +35,10 @@ export const headerData = {
       text: '关于我',
       href: getPermalink('/about'),
     },
+    {
+      text: '阅读',
+      href: getPermalink('/reading'),
+    }
   ],
   actions: [
     // { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }

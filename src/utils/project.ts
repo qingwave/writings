@@ -1,5 +1,5 @@
 import { projectData } from '~/data';
-import { Project } from '~/types';
+import type { Project } from '~/types';
 
 export const fetchProject = () => {
   const items = new Array<Project>();

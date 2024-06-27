@@ -1,0 +1,67 @@
+books:
+  - name: '设计数据密集型应用'
+    originalName: 'Designing Data-Intensive Applications'
+    category: '技术'
+    startAt: '2024/05'
+    endAt: '2024/06'
+    rate: 5
+    comments: '近几年读过最好的技术书，看着书名不知所以，看完以后发现没有比这更合适的名字了。对于后端开发很有启发，深入浅出的讲解了从数据编码、到数据库、分布式系统各个维度的内容，十分推荐'
+  - name: '架构师修炼之道'
+    originalName: 'The Software Architect Elevator'
+    category: '技术'
+    startAt: '2024/06'
+    endAt: '2024/07'
+    rate: 3
+    comments: '工具书非技术书，作为架构师需要怎么规划、管理项目，可以使用哪些工具、方法论等，对于我实用度一般'
+  - name: '八次危机'
+    category: '人文'
+    startAt: '2024/07'
+    rate: 5
+    comments: '之前B站上看到过温老师的视频，被吸引过来，书中干货很多，关于农村、中国经济的一些观点独到，和以前学到的历史很有大差异'
+  - name: '晚清的最后十八年'
+    category: '人文'
+    startAt: '2024/07'
+    rate: 4
+    comments: '又名清朝末年哪些事儿，看起来非常流畅，好像作者参与了整个事件一样，就是有时候某些抒情和心里描写略显中二'
+  - name: '幸得诸君慰平生'
+    category: '人文'
+    startAt: '2024/03'
+    endAt: '2024/03'
+    rate: 3
+    comments: '中篇《金钱珍》看起来很有意思，生活琐事有点无趣，一些散文的描写能觉察出作者是个很细腻很会观察生活的人'
+  - name: 'Release It! Design and Deploy Production-ready Software'
+    category: '技术'
+    startAt: '2024/06'
+    endAt: ''
+    rate: 4
+    comments: '英文看起来有些吃力，进行中'
+  - name: '置身事内'
+    category: '人文'
+    startAt: '2023/08'
+    endAt: '2024/12'
+    rate: 5
+    comments: '深入理解中国的政府是怎么运作的，受益匪浅'
+  - name: '穷爸爸与富爸爸'
+    category: '人文'
+    startAt: '2023/10'
+    endAt: '2023/11'
+    rate: 4
+    comments: '理财入门书，对于财务自由的一些观点很有启发'
+  - name: '欧亨利短篇小说集'
+    category: '人文'
+    startAt: '2024/05'
+    endAt: '2024/05'
+    rate: 3.5
+    comments: '初看很有意思，看多了都是一样的套路'
+  - name: '局外人'
+    category: '人文'
+    startAt: '2024/04'
+    endAt: '2024/04'
+    rate: 3.5
+    comments: '小说很短，但确实也没太看懂想表达什么'
+  - name: '凤凰架构'
+    category: '技术'
+    startAt: '2023/06'
+    endAt: '2023/12'
+    rate: 5
+    comments: '结合例子讲解了软件架构的演进，几乎涵盖了分布式系统的各个方面，时不时遇到对应的问题翻一翻'

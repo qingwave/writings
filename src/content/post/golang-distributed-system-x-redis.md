@@ -2,6 +2,7 @@
 title: 'Golang分布式应用之Redis'
 date: 2022-07-22T18:07:56Z
 draft: false
+image: /img/blog/gocorex.jpg
 tags: ['redis', 'golang', '分布式']
 categories: ['code']
 ---

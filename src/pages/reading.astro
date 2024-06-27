@@ -1,0 +1,120 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+import { SITE } from '~/config.mjs';
+import { books } from '../books.js';
+
+const meta = {
+  title: `Reading`,
+  description: SITE.description
+};
+
+const allCategories = ['All', ...new Set(
+  books
+    .map(book => book.category.trim())
+    .filter(category => category !== '')
+)];
+
+const renderRatingStars = (rating) => {
+  if (rating < 0 || rating > 5 || isNaN(rating)) {
+    return '评分无效';
+  }
+
+  const filledStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 !== 0;
+
+  return '★'.repeat(filledStars) + (hasHalfStar ? '☆' : '');
+};
+
+books.sort((a, b) => new Date(b.startAt) - new Date(a.startAt));
+
+const renderStatus = (book) => {
+  if (book.endAt) {
+    return '已读'
+  }
+
+  const currentDate = new Date();
+  const startDate = new Date(book.startAt);
+  const timeDiff = Math.abs(currentDate.getTime() - startDate.getTime());
+  const days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  return days > 365 ? '弃书' : '阅读中';
+}
+
+---
+<Layout meta={meta}>
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+    <Headline>Reading List</Headline>
+    <div class="mb-6 flex flex-wrap gap-2" id="categories-container">
+      {allCategories.map((category, index) => (
+        <a key={index}
+           href="#"
+           id="cat-selector"
+           class={`text-neutral-400 hover:text-neutral-900 tab ${category === 'All' ? 'active' : ''}`}
+           data-category={category.toLowerCase().replace(' ', '-')}>
+          <span>{category}</span>
+        </a>
+      ))}
+    </div>
+    <div id="books-container" class="grid gap-6 md:grid-cols-2">
+      {books.map((book, index) => (
+        <article key={index} class={`p-4 border rounded-lg shadow-md book-item ${book.category.toLowerCase().replace(' ', '-')}`}>
+          <div class="flex">
+            <img class="w-32 h-48 object-cover rounded mb-4 mr-4" src={book.data.cover_url} alt={book.name} loading="lazy" referrerpolicy="no-referrer" />
+            <div class="flex flex-col flex-grow">
+              <div class="text-sm text-gray-60 grid gap-y-2">
+                <a href={book.data.url} target="_blank" rel="noopener" class="text-lg font-semibold mb-2 text-primary hover:underline">{book.name}</a>
+                { book.originalName && <p><span class="text-neutral-500">原作名: </span> {book.originalName}</p>}
+                {/* 豆瓣评分 */}
+                <p><span class="text-neutral-500">豆瓣评分: </span> {book.data.rating.value}</p>
+                {/* 主观评分 */}
+                <p><span class="text-neutral-500">主观评分: </span> {renderRatingStars(book.rate)}</p>
+                <p><span class="text-neutral-500">阅读时间: </span> {book.startAt}</p>
+                <p><span class="text-neutral-500">阅读状态: </span> {renderStatus(book)}</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-auto prose dark:prose-invert">{book.comments}</div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const categoryLinks = document.querySelectorAll('#cat-selector');
+
+    // Set default category to 'All'
+    const defaultCategory = document.querySelector('[data-category="all"]');
+    if (defaultCategory) {
+      defaultCategory.classList.add('active');
+    }
+
+    document.getElementById('categories-container').addEventListener('click', function(event) {
+      if (event.target.id === 'cat-selector' || event.target.parentElement.id === 'cat-selector') {
+        event.preventDefault();
+        const targetLink = event.target.id === 'cat-selector' ? event.target : event.target.parentElement;
+        const category = targetLink.dataset.category;
+
+        // Remove active class from all links
+        categoryLinks.forEach(link => link.classList.remove('active'));
+
+        // Add active class to the clicked tab
+        targetLink.classList.add('active');
+
+        // Filter books based on category
+        const articles = document.querySelectorAll('.book-item');
+        articles.forEach(article => {
+          const articleCategory = article.classList[article.classList.length - 1]; // Get last class which corresponds to category
+          article.style.display = (category === 'all' || articleCategory === category) ? 'block' : 'none';
+        });
+      }
+    });
+
+    // Initially display all books
+    const articles = document.querySelectorAll('.book-item');
+    articles.forEach(article => {
+      article.style.display = 'block';
+    });
+  });
+</script>

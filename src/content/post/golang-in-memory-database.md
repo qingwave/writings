@@ -3,7 +3,7 @@ title: 'Golang实现一个事务型内存数据库'
 date: 2023-03-01T08:01:22Z
 draft: false
 description: "MossDB的实现细节"
-image: ~/assets/images/do-more.jpg
+image: /img/blog/mossdb.jpg
 tags: ['golang', 'database', 'etcd']
 categories: ['code']
 ---

@@ -9,23 +9,20 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<ul class="grid md:grid-cols-2 gap-10 mx-auto">
+<ul class="grid md:grid-cols-2 gap-8 mx-auto">
   {
     projects.map((project, index) => (
-      <li>
+      <li class="flex p-2 rounded-lg hover:bg-neutral-50 transition-transform transform hover:scale-105">
         <a href={`${project.href}`}>
-          <div class="">
+          <div class="w-full">
             <Image
               src={project.img}
               alt=""
-              sizes="(max-width: 800px) 100vw, 800px"
-              widths={[200, 400, 800]}
-              height=200
               aspectRatio="16:9"
               layout="constrained"
               loading='lazy'
-              decoding={index <= 2 ? 'sync' : 'async'}
-              class="w-full rounded-md border border-neutral-200 hover:shadow-lg"
+              decoding='async'
+              class="w-full rounded-md border border-neutral-200"
             />
             <div>
               <div class="mt-4 flex items-center">

@@ -4,7 +4,7 @@ title: Golang内存问题排查
 draft: false
 description: '如何快速定位内存泄漏'
 excerpt: ''
-image: ''
+image: '/img/gomemstats/go_mem_stats_pprof.png'
 categories: ['code']
 tags: ['golang']
 ---
