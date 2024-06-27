@@ -19,7 +19,7 @@ const image = await findImage(post.image);
 const link = !BLOG?.post?.disabled ? getPermalink(post.permalink, 'post') : '';
 ---
 
-<article class="flex max-w-3xl mx-auto gap-6 md:gap-8 hover:bg-neutral-50 dark:hover:bg-slate-800 rounded-lg px-2 py-4 transition-transform ease-in-out hover:scale-105">
+<article class="flex mx-auto gap-6 md:gap-8 hover:bg-neutral-50 dark:hover:bg-slate-800 rounded-lg px-2 py-4 transition-transform ease-in-out hover:scale-105">
   <div class={`flex flex-col justify-between w-full ${showImage && image ? 'md:w-2/3' : ''}`}>
     <div class="mt-1">
       <span class="text-sm leading-6 mb-1 text-slate-700 dark:text-slate-400">

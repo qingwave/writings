@@ -34,7 +34,7 @@ posts.map((post) => {
   categories.size && (
     <div class="mb-8">
       <Headline2 title="分类" />
-      <div class="flex flex-wrap text-lg font-medium max-w-3xl">
+      <div class="flex flex-wrap text-lg font-medium">
         {[...categories].map(([category, val]) => (
           <div class="rounded-full border border-slate-500 dark:border-slate-100 inline-block mr-4 mb-6 py-1 px-3">
             {BLOG?.category?.disabled ? (
@@ -59,7 +59,7 @@ posts.map((post) => {
   tags.size && (
     <div class="mb-8">
       <Headline2 title="标签" />
-      <div class="flex flex-wrap text-lg font-medium max-w-3xl">
+      <div class="flex flex-wrap text-lg font-medium">
         {[...tags].map(([tag, val]) => (
           <div class="rounded-full border border-slate-500 dark:border-slate-100 inline-block mr-4 mb-6 py-1 px-3">
             {BLOG?.tag?.disabled ? (
