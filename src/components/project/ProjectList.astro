@@ -12,7 +12,7 @@ const { projects } = Astro.props;
 <ul class="grid md:grid-cols-2 gap-8 mx-auto">
   {
     projects.map((project, index) => (
-      <li class="flex p-2 rounded-lg hover:bg-neutral-50 transition-transform transform hover:scale-105">
+      <li class="flex p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-slate-800 transition-transform ease-in-out hover:scale-105">
         <a href={`${project.href}`}>
           <div class="w-full">
             <Image
@@ -22,14 +22,14 @@ const { projects } = Astro.props;
               layout="constrained"
               loading='lazy'
               decoding='async'
-              class="w-full rounded-md border border-neutral-200"
+              class="w-full rounded-md"
             />
             <div>
               <div class="mt-4 flex items-center">
                 <h2 class="text-lg font-semibold leading-snug tracking-tight">{project.title}</h2>
               </div>
 
-              <div class="flex gap-1 mt-1 text-gray-600">
+              <div class="flex gap-1 mt-1 text-gray-600 dark:text-slate-400">
                 <p>{project.description}</p>
               </div>
             </div>

@@ -40,7 +40,7 @@
   }
   
   .tab.active {
-    @apply text-neutral-900 border-neutral-900;
+    @apply text-neutral-900 border-neutral-900 dark:text-slate-100 dark:border-slate-100;
   }
 }
 

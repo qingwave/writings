@@ -5,9 +5,11 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import TagList from '~/components/blog/TagList.astro';
 
 import { fetchPosts } from '~/utils/blog';
 import { BLOG_BASE } from '~/utils/permalinks';
+
 
 export async function getStaticPaths({ paginate }) {
   if (BLOG?.disabled || BLOG?.list?.disabled) return [];
@@ -26,12 +28,54 @@ const meta = {
   noindex: BLOG?.list?.noindex || currentPage > 1,
   ogType: 'blog',
 };
+
+const tabs = ["列表", "索引"]
+
 ---
 
-<Layout {meta}>
+<Layout meta={meta}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
     <Headline subtitle="">文章</Headline>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    <div class="mb-6 flex flex-wrap gap-4" id="categories-container">
+      {tabs.map((item, index) => (
+        <a
+          key={index}
+          href="#"
+          class={`text-neutral-400 hover:text-neutral-900 tab ${index == 0 ? 'active' : ''}`}
+        >
+          <span>{item}</span>
+        </a>
+      ))}
+    </div>
+    <div class="tab-item">
+      <BlogList posts={page.data} />
+      <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+    </div>
+    <div class="tab-item px-6 sm:px-6 py-12 sm:py-12 lg:py-16 mx-auto max-w-3xl">
+      <TagList />
+    </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.tab');
+      const items = document.querySelectorAll('.tab-item');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+          e.preventDefault();
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const index = tab.getAttribute('key');
+          items.forEach((item, key) => {
+            if (key == Number(index)) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
 </Layout>

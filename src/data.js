@@ -24,20 +24,12 @@ export const headerData = {
     //   ]
     // },
     {
-      text: '标签',
-      href: getPermalink('/tags'),
+      text: '阅读',
+      href: getPermalink('/reading'),
     },
-    // {
-    //   text: '分类',
-    //   href: '/categories',
-    // },
     {
       text: '关于我',
       href: getPermalink('/about'),
-    },
-    {
-      text: '阅读',
-      href: getPermalink('/reading'),
     }
   ],
   actions: [
