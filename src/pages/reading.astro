@@ -41,14 +41,14 @@ const renderStatus = (book) => {
 ---
 
 <Layout meta={meta}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-3xl">
+  <section class="px-6 page mx-auto max-w-3xl">
     <Headline>读过的书</Headline>
-    <div class="mb-6 flex flex-wrap gap-2" id="categories-container">
+    <div class="mb-6 flex flex-wrap gap-4" id="categories-container">
       {allCategories.map((category, index) => (
         <a
           key={index}
           href="#"
-          class={`transition text-neutral-400 hover:text-neutral-900 dark:hover:text-slate-100 tab ${category === 'All' ? 'active' : ''}`}
+          class={`tab ${category === 'All' ? 'active' : ''}`}
           data-category={category.toLowerCase().replace(' ', '-')}
         >
           <span>{category}</span>

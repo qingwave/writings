@@ -65,7 +65,7 @@ const {
               <li class={links?.length ? 'dropdown' : ''}>
                 {links?.length ? (
                   <>
-                    <button class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out">
+                    <button class="font-medium px-4 py-3 flex items-center transition duration-150 ease-in-out">
                       {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 hidden md:inline" />
                     </button>
                     <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
@@ -83,7 +83,7 @@ const {
                   </>
                 ) : (
                   <a
-                    class="text-neutral-500 hover:text-neutral-950 font-medium dark:hover:text-white px-4 py-3 flex items-center"
+                    class="font-medium px-4 py-3 flex items-center"
                     href={href}
                     memu-item
                   >
@@ -135,19 +135,33 @@ const {
   </div>
 </header>
 
-<!-- <script>
-  function handleMenu(elem) {
-    const href = elem.getAttribute('href');
-    let keys = [window.location.pathname, window.location.href];
-    if (keys.includes(href) || keys.includes(href + '/')) {
-      elem.classList.toggle('font-bold');
-    } else {
-      elem.classList.remove('font-bold');
-    }
-  }
+<script>
+  let textColor = ['text-neutral-300', 'dark:text-neutral-500']
+  let originColor = ['text-neutral-500', 'dark:text-neutral-300']
+  document.addEventListener('DOMContentLoaded', function () {
+    const elems = document.querySelectorAll('[memu-item]');
+    elems.forEach((elem) => { 
+          elem.classList.remove(...textColor)
+          elem.classList.add(...originColor)
+    });
 
-  const elems = document.querySelectorAll('[memu-item]');
-  elems.forEach((elem) => {
-    handleMenu(elem);
+    elems.forEach((elem) => {
+      elem.addEventListener('mouseover', function (event) {
+        event.preventDefault();
+        elems.forEach((elem) => {
+           elem.classList.remove(...originColor);
+           elem.classList.add(...textColor)
+        });
+        elem.classList.remove(...textColor);
+        elem.classList.add(...originColor);
+      });
+      elem.addEventListener('mouseout', function (event) {
+        event.preventDefault();
+        elems.forEach((elem) => { 
+          elem.classList.remove(...textColor)
+          elem.classList.add(...originColor)
+        });
+      });
+    });
   });
-</script> -->
+</script>

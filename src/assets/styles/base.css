@@ -36,11 +36,15 @@
   }
 
   .tab {
-    @apply relative px-3 overflow-hidden inline-block border-b-2 border-transparent;
+    @apply relative px-3 overflow-hidden inline-block border-b-2 border-transparent text-neutral-500 hover:text-neutral-900 dark:text-slate-400 dark:hover:text-slate-100;
   }
   
   .tab.active {
-    @apply text-neutral-900 border-neutral-900 dark:text-slate-100 dark:border-slate-100;
+    @apply text-neutral-900 border-neutral-900 dark:text-slate-100 dark:border-slate-100 dark:hover:text-slate-100 transition;
+  }
+
+  .page {
+    @apply px-6 sm:px-6 py-12 md:py-16 mx-auto max-w-3xl
   }
 }
 
