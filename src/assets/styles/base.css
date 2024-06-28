@@ -48,7 +48,8 @@
   }
 }
 
-#header.scroll {
+
+#header {
   @apply bg-white md:bg-white/90 md:backdrop-blur-sm dark:bg-slate-900 dark:md:bg-slate-900/90;
 }
 
