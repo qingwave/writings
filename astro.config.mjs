@@ -14,6 +14,7 @@ import {
   responsiveTablesRehypePlugin,
   lazyImagesRehypePlugin,
 } from './src/utils/frontmatter.mjs';
+import pagefind from "astro-pagefind";
 
 import { SITE } from './src/config.mjs';
 
@@ -67,6 +68,7 @@ export default defineConfig({
         ic: ['*'],
       }
     }),
+    pagefind(),
 
     ...whenExternalScripts(() =>
       partytown({

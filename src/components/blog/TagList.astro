@@ -5,7 +5,7 @@ import { getPermalink } from '~/utils/permalinks';
 
 import { fetchPosts } from '~/utils/blog';
 import Headline2 from '~/components/blog/Headline2.astro';
-import PageFind from '~/components/common/PageFind.astro';
+import Search from "astro-pagefind/components/Search";
 
 const posts = await fetchPosts();
 const tags = new Map();
@@ -29,7 +29,8 @@ posts.map((post) => {
 });
 ---
 
-<PageFind class="mb-12 mt-8"></PageFind>
+<Search id="search" className="pagefind-ui mb-12 mt-8" uiOptions={{ showImages: false }} />
+
 {
   categories.size && (
     <div class="mb-8">

@@ -12,7 +12,8 @@
     "format": "prettier -w .",
     "lint:eslint": "eslint . --ext .js,.ts,.astro",
     "new": "node scripts/new.js",
-    "search": "pagefind --source dist"
+    "books": "node scripts/books.js",
+    "search": "pagefind --site dist"
   },
   "devDependencies": {
     "@astrojs/mdx": "^3.1.1",
@@ -49,6 +50,7 @@
     "node": ">=18.14.1"
   },
   "dependencies": {
+    "astro-pagefind": "^1.5.0",
     "unpic": "^3.18.0"
   }
 }
