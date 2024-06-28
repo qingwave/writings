@@ -33,7 +33,7 @@ posts.map((post) => {
 
 {
   categories.size && (
-    <div class="mb-8">
+    <div class="mb-8 md:mb-12">
       <Headline2 title="分类" />
       <div class="flex flex-wrap justify-start gap-3 md:gap-4">
         {[...categories].map(([category, val]) => (
@@ -58,7 +58,7 @@ posts.map((post) => {
 
 {
   tags.size && (
-    <div class="mb-8">
+    <div class="mb-8 md:mb-12">
       <Headline2 title="标签" />
       <div class="flex flex-wrap justify-start gap-3 md:gap-4">
   {[...tags].map(([tag, val]) => (
