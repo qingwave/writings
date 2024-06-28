@@ -12,7 +12,7 @@ const { projects } = Astro.props;
 <ul class="grid md:grid-cols-2 gap-8 mx-auto">
   {
     projects.map((project, index) => (
-      <li class="flex p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-slate-800 transition-transform ease-in-out hover:scale-105">
+      <li class="flex p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-slate-800 transition-transform ease-in-out md:hover:scale-105">
         <a href={`${project.href}`}>
           <div class="w-full">
             <Image
