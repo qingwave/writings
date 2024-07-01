@@ -2,6 +2,7 @@
 title: 'Golang分布式应用之定时任务'
 date: 2022-07-28T16:07:56Z
 draft: false
+image: /img/blog/cron-heap.png
 tags: ['golang', '分布式']
 categories: ['code']
 ---

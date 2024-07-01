@@ -83,7 +83,7 @@ const {
                   </>
                 ) : (
                   <a
-                    class="font-medium px-4 py-3 flex items-center"
+                    class="font-medium px-4 py-3 flex items-center text-neutral-500 dark:text-neutral-300"
                     href={href}
                     memu-item
                   >
@@ -140,10 +140,6 @@ const {
   let originColor = ['text-neutral-500', 'dark:text-neutral-300']
   document.addEventListener('DOMContentLoaded', function () {
     const elems = document.querySelectorAll('[memu-item]');
-    elems.forEach((elem) => { 
-          elem.classList.remove(...textColor)
-          elem.classList.add(...originColor)
-    });
 
     elems.forEach((elem) => {
       elem.addEventListener('mouseover', function (event) {

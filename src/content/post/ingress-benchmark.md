@@ -2,6 +2,7 @@
 title: ingress nginx benchmark
 author: qinng
 toc: true
+image: /img/blog/ingress-benchmark1.png
 tags:
   - k8s
   - ingress

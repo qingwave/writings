@@ -2,6 +2,7 @@
 title: Kubernetes中Sidecar生命周期管理
 author: qinng
 toc: true
+image: /img/blog/sidecar-lifecycle.png
 tags:
   - k8s
 date: 2020-09-21 11:45:00

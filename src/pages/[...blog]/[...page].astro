@@ -51,7 +51,7 @@ const tabs = ["列表", "索引"]
       <BlogList posts={page.data} />
       <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     </div>
-    <div class="tab-item py-4">
+    <div class="tab-item py-4 hidden">
       <TagList />
     </div>
   </section>
@@ -71,7 +71,7 @@ const tabs = ["列表", "索引"]
             if (key == Number(index)) {
               item.classList.remove('hidden');
             } else {
-              item.classList.add('hidden');
+              item.classList.toggle('hidden');
             }
           });
         });

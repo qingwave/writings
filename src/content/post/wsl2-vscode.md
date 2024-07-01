@@ -2,6 +2,7 @@
 title: WSL2+VSCode+Zsh打造Win开发环境
 author: qinng
 toc: true
+image: /img/blog/wsl-vscode.png
 tags:
   - wsl
 date: 2020-02-11 23:51:51

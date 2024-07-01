@@ -2,6 +2,7 @@
 title: 'Open Policy Agent vs Casbin'
 date: 2022-05-20T06:03:49Z
 draft: false
+image: https://d33wubrfki0l68.cloudfront.net/b394f524e15a67457b85fdfeed02ff3f2764eb9e/6ac2b/docs/latest/images/opa-service.svg
 description: "Golang访问工具库的对比"
 tags: ['authorization']
 categories: 

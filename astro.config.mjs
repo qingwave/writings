@@ -65,7 +65,7 @@ export default defineConfig({
     icon({
       include: {
         tabler: ['*'],
-        ic: ['*'],
+        ph: ['*'],
       }
     }),
     pagefind(),

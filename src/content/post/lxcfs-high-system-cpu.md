@@ -2,6 +2,7 @@
 title: cgroup引起的应用延迟
 subtitle: lxcfs/cadvisor cpu使用率高
 date: 2019-11-13 17:42:06
+image: /img/blog/lxcfs-cpu.png
 tags:
   - k8s
   - cadvisor

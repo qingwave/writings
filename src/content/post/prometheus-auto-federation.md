@@ -2,6 +2,7 @@
 title: Prometheus高可用自动分区方案
 author: qinng
 toc: true
+image: /img/blog/prometheus-ha.png
 tags:
   - prometheus
 date: 2021-03-30 19:07:20

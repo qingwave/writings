@@ -16,3 +16,4 @@ Projects:
 - [gocorex](https://github.com/qingwave/gocorex), a collection golang useful utils for golang application, distributed system and microservice
 - [mycni](https://github.com/qingwave/mycni), a simple CNI plugin for Kubernetes
 - [ring](https://github.com/qingwave/ring), ping but with rust
+- [writings](https://github.com/qingwave/writings), a personal website based on Astro and Tailwind CSS
