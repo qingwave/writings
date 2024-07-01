@@ -6,6 +6,7 @@ import Footer from '~/components/widgets/Footer.astro';
 import { headerData, footerData } from '~/data';
 
 import type { MetaSEO } from '~/types';
+import BackToTop from '~/components/common/BackToTop.astro';
 
 export interface Props {
   meta?: MetaSEO;
@@ -20,6 +21,7 @@ const { meta } = Astro.props;
   </slot>
   <main>
     <slot />
+    <BackToTop/>
   </main>
   <slot name="footer">
     <Footer {...footerData} />

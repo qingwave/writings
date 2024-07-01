@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div id="back-to-top" class="z-50 fixed bottom-8 right-6 hidden">
+  <button
+    class="p-3 hover:bg-neutral-100 dark:hover:bg-slate-800 text-neutral-300 dark:text-gray-300 hover:text-neutral-500 dark:hover:text-gray-100 rounded-full"
+  >
+  <Icon name="ph:rocket-fill" class="w-6 h-6" />
+  </button>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove('hidden');
+        backToTopButton.classList.add('block');
+      } else {
+        backToTopButton.classList.remove('block');
+        backToTopButton.classList.add('hidden');
+      }
+    });
+  });
+</script>
