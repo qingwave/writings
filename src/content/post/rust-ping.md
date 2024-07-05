@@ -108,6 +108,8 @@ socket.set_write_timeout(Some(Duration::from_secs(config.timeout)))?;
 socket.send_to(icmp.packet_mut(), &self.dest.into())?;
 ```
 
+> 注意这里`Type::DGRAM`只适用于Linux，可以实现non-root的创建ICMP，如果需要其他系统需要使用`Type::RAW`(同时要添加`CAP_NET_RAW`权限)，见[add ICMP socket kind](https://lwn.net/Articles/420800/)
+
 最后处理相应，转换成 pnet 中的 EchoReplyPacket
 
 ```rust

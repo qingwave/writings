@@ -12,6 +12,8 @@ categories:
 
 前文[快速实现一个 Kubernetes Operator](./how-to-write-a-k8s-operator)介绍了`kubebuilder`工具，快速实现了一个`Operator`。今天我们深入水下，探寻`kubebuilder`究竟是如何工作的。
 
+> 2024/7/4更新：本文分析基于[controller-runtime:v0.8.3](https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.8.3)，虽然过去了很久，大体流程还是一致的
+
 <!--more-->
 
 ## 普通开发流程
@@ -33,54 +35,54 @@ categories:
 
 主要分为以下几步：
 
-初始化`client`配置
+1. 初始化`client`配置
 
 ```go
-  //通过master/kubeconfig建立client config
-  cfg, err := clientcmd.BuildConfigFromFlags(masterURL, kubeconfig)
+  	//通过master/kubeconfig建立client config
+  	cfg, err := clientcmd.BuildConfigFromFlags(masterURL, kubeconfig)
 	if err != nil {
 		klog.Fatalf("Error building kubeconfig: %s", err.Error())
 	}
 
-  // kubernetes client
+  	// kubernetes client
 	kubeClient, err := kubernetes.NewForConfig(cfg)
 	if err != nil {
 		klog.Fatalf("Error building kubernetes clientset: %s", err.Error())
 	}
 
-  // crd client
+  	// crd client
 	exampleClient, err := clientset.NewForConfig(cfg)
 	if err != nil {
 		klog.Fatalf("Error building example clientset: %s", err.Error())
 	}
 ```
 
-初始化 Informer 并启动
+2. 初始化 Informer 并启动
 
 ```go
-  //k8s sharedInformer
-  kubeInformerFactory := kubeinformers.NewSharedInformerFactory(kubeClient, time.Second*30)
-  // crd sharedInformer
+	//k8s sharedInformer
+	kubeInformerFactory := kubeinformers.NewSharedInformerFactory(kubeClient, time.Second*30)
+	// crd sharedInformer
 	exampleInformerFactory := informers.NewSharedInformerFactory(exampleClient, time.Second*30)
 
-  // 初始化controller，传入informer, 注册了Deployment与Foo Informers
+	// 初始化controller，传入informer, 注册了Deployment与Foo Informers
 	controller := NewController(kubeClient, exampleClient,
 		kubeInformerFactory.Apps().V1().Deployments(),
 		exampleInformerFactory.Samplecontroller().V1alpha1().Foos())
-  //启动Informer
+	//启动Informer
 	kubeInformerFactory.Start(stopCh)
 	exampleInformerFactory.Start(stopCh)
 ```
 
-最后启动`Controller`
+3. 最后启动`Controller`
 
 ```go
-  if err = controller.Run(2, stopCh); err != nil {
-		klog.Fatalf("Error running controller: %s", err.Error())
-	}
+if err = controller.Run(2, stopCh); err != nil {
+	klog.Fatalf("Error running controller: %s", err.Error())
+}
 ```
 
-在`Controller`的实现中，通过`NewController`来初始化：
+具体来看`Controller`的实现，通过`NewController`初始化：
 
 ```go
 func NewController(
@@ -136,7 +138,7 @@ func NewController(
 }
 ```
 
-`Controller`启动则是典型的 k8s 工作流，通过控制循环不断从工作队列获取对象进行处理，使其达到期望状态
+`Controller`启动则是典型的 k8s 工作流（Reconcile），控制循环不断地从工作队列获取对象进行处理，使其达到期望状态
 
 ```go
 func (c *Controller) Run(workers int, stopCh <-chan struct{}) error {
@@ -153,7 +155,8 @@ func (c *Controller) Run(workers int, stopCh <-chan struct{}) error {
 	for i := 0; i < workers; i++ {
 		go wait.Until(c.runWorker, time.Second, stopCh)
 	}
-  // 等待退出信号
+
+  	// 等待退出信号
 	<-stopCh
 	return nil
 }
@@ -206,9 +209,9 @@ func (c *Controller) processNextWorkItem() bool {
 
 ## Operator 模式
 
-在`Operator`模式下，用户只需要实现`Reconcile`(调谐)即`sample-controller`中的`syncHandler`，其他步骤`kubebuilder`已经帮我们实现了。那我们来一探究竟，`kubebuilder`是怎么一步步触发`Reconcile`逻辑。
+在`Operator`模式下，用户只需要实现`Reconcile`（调谐）即`sample-controller`中的`syncHandler`，其他步骤`kubebuilder`已经帮我们实现了。那我们来一探究竟，`kubebuilder`是怎么一步步触发`Reconcile`逻辑。
 
-以[mygame](https://github.com/qingwave/mygame)为例，通常使用`kubebuilder`生成的主文件如下：
+以[mygame](https://github.com/qingwave/mygame)为例，通常使用`kubebuilder`生成的`main.go`如下：
 
 ```go
 var (
@@ -265,7 +268,7 @@ func main() {
 }
 ```
 
-`kubebuilder`封装了`controller-runtime`，在主文件中主要初始了`controller-manager`,以及我们填充的`Reconciler`与`Webhook`，最后启动`manager`。
+`kubebuilder`封装了`controller-runtime`，在`main.go`中主要初始了`controller-manager`，以及我们填充的`Reconciler`与`Webhook`，最后启动`manager`。
 
 分别来看下每个流程。
 
@@ -339,7 +342,7 @@ func New(config *rest.Config, options Options) (Manager, error) {
 	}, nil
 ```
 
-在`New`中主要初始化了各种配置端口、选主信息、`eventRecorder`，最重要的是初始了`Cluster`。`Cluster`用来访问 k8s，初始化代码如下：
+在`New`中主要初始化了各种配置端口、选主信息、`eventRecorder`，最重要的是初始了`Cluster`，`Cluster`用来访问 k8s，初始化代码如下：
 
 ```go
 // New constructs a brand new cluster
@@ -422,7 +425,7 @@ func New(config *rest.Config, opts Options) (Cache, error) {
 }
 ```
 
-`New`中调用了`NewInformersMap`来创建`infermer map`，分为`structured`、`unstructured`与`metadata`
+`New`中调用了`NewInformersMap`来创建`informersMap`，分为`structured`、`unstructured`与`metadata`
 
 ```go
 func NewInformersMap(config *rest.Config,
@@ -510,7 +513,7 @@ func createStructuredListWatch(gvk schema.GroupVersionKind, ip *specificInformer
 }
 ```
 
-在`newSpecificInformersMap`中通过`informersByGVK`来记录`schema`中每个`GVK`对象与`informer`的对应关系，使用时可根据`GVK`得到`informer`再去`List`/`Get`。
+在`newSpecificInformersMap`中通过`informersByGVK`来记录`schema`中每个`GVK`对象与`informer`的对应关系，使用时可根据`GVK`得到`informer`再去`List/Get`。
 
 `newSpecificInformersMap`中的`createListWatcher`来初始化`ListWatch`对象。
 
@@ -580,7 +583,7 @@ func New(config *rest.Config, options Options) (Client, error) {
 }
 ```
 
-`writeObj`实现了读写分离的`Client`，写直连`apiserver`，读获取在`cache`中则直接读取`cache`，否则通过`clientset`。
+`writeObj`实现了读写分离的`Client`，写直连`apiserver`，读直接从`cache`中获取，只有明确设置`ClientDisableCacheFor`与`CacheUnstructured`才会请求`apiserver`。
 
 ```go
 writeObj, err := options.ClientBuilder.
@@ -636,11 +639,38 @@ func (d *delegatingReader) Get(ctx context.Context, key ObjectKey, obj Object) e
 	if isUncached, err := d.shouldBypassCache(obj); err != nil {
 		return err
 	} else if isUncached {
+		// 通过apiserver去读
 		return d.ClientReader.Get(ctx, key, obj)
 	}
+	// 读取cache, informer不存在会自动创建informer
 	return d.CacheReader.Get(ctx, key, obj)
 }
+
+// CacheReader.Get具体实现
+func (ip *informerCache) Get(ctx context.Context, key client.ObjectKey, out client.Object) error {
+	gvk, err := apiutil.GVKForObject(out, ip.Scheme)
+	if err != nil {
+		return err
+	}
+
+	// 获取informer，如果不存在会创建新的informer并start
+	started, cache, err := ip.InformersMap.Get(ctx, gvk, out)
+	if err != nil {
+		return err
+	}
+
+	if !started {
+		return &ErrCacheNotStarted{}
+	}
+	return cache.Reader.Get(ctx, key, out)
+}
 ```
+
+**client.Get的注意事项**
+
+使用`client.Get`要特别注意，如果配置了cache，默认是会从cache中读取的，即使没有在项目中明确的`watch`，当调用`Get`时发现`Informer`不存在，会自动创建`Informer`的。这就是为什么有的时候，明明只`Get`了某种资源，却需要`watch,list`权限，社区中也一些issue: [1156](https://github.com/kubernetes-sigs/controller-runtime/issues/1156), [550](https://github.com/kubernetes-sigs/controller-runtime/issues/550)。
+
+如果不需要cache，可以创建新的不适用Cache的client或者明确的配置`ClientDisableCacheFor`(新版本需要配置Cache.Options的`DisableFor`)。
 
 ### Controller 初始化
 
