@@ -9,7 +9,7 @@ categories: ['cloud']
 tags: ['k8s']
 ---
 
-> 开始之前假设你已经有了开发Operator的相关经验，如果不了解的话可以先看下[快速实现一个Kubernetes Operator](./how-to-write-a-k8s-operator.md)。
+> 开始之前假设你已经有了开发Operator的相关经验，如果不了解的话可以先看下[快速实现一个Kubernetes Operator](/how-to-write-a-k8s-operator)。
 
 借助kubebuilder相关工具，我们可以快速搭建一个Operator框架，但更复杂的是如何将业务抽象成CRD，本文旨在探讨设计CRD时一些关键原则与注意事项，以抛砖引玉。
 
