@@ -125,4 +125,11 @@ export const projectData = [
     img: getAsset('/img/blog/ring.jpg'),
     href: 'https://github.com/qingwave/ring',
   },
+  {
+    title: 'KubeWizard',
+    description: 'AI驱动的K8s Agent, 自动问题诊断与资源管理',
+    year: 2024,
+    img: 'https://asciinema.org/a/XS80PxLxtmurqMw6LU7UJtzhb.svg',
+    href: 'https://github.com/qingwave/kubewizard',
+  }
 ];
