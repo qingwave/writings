@@ -5,8 +5,8 @@ draft: false
 description: '尝试完全由ChatGPT从零实现一个项目'
 excerpt: ''
 image: '/img/mygpt/mygpt.png'
-categories: ['工具']
-tags: ['chatgpt']
+categories: ['工具', 'ai']
+tags: ['chatgpt', 'ai']
 ---
 
 最近公司在搞头脑风暴，研究如何将项目与AIGC结合起来。平常也经常使用`New Bing`、`ChatGPT`做一些辅助开发，大部分是作为一个更智能点的搜索引擎，这次想做个更有意思的尝试，看看能不能通过`ChatGPT`完全独立地实现一个可用的前后端项目。
