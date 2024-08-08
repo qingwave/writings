@@ -93,7 +93,7 @@ CRD不可能避免的随着时间而变化，设计CRD时需要考虑到兼容�
 1. 获取资源
 2. 比对当前状态去期望值
 3. 根据比较结果执行操作
-```golang
+```go
 mydbs ：= client.ListMYDB()
 createdDBs := mycluster.Spec.Replicas - len(mydbs)
 for i := 0; i < createdDBs; i++ {
@@ -107,7 +107,7 @@ for i := 0; i < createdDBs; i++ {
 
 在CRD中Golang结构体中，有时候需要用到指针类型，有时候又不需要，该怎么处理呢？
 如果字段有默认值，需要使用指针类型，指针类型可以区分用户是否设置了字段，比如`Deployment`中的`spec.replicas`, 没有设置副本`Replicas`是`nil`，如果直接`int32`类型，将无法判断用户是设置为0了还是没有设置。
-```golang
+```go
 type DeploymentSpec struct {
 	// Number of desired pods. This is a pointer to distinguish between explicit
 	// zero and not specified. Defaults to 1.

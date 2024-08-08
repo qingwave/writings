@@ -30,7 +30,7 @@ OPA 正是解决这个问题，将散落在系统各处的策略进行统一，�
 
 首先需要实现策略，我们允许所有用户访问非 api 的接口，拒绝未认证用户访问 api 资源，通过 Rego 实现如下：
 
-```rego
+```go
 package authz
 
 default allow = false

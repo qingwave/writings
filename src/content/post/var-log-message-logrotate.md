@@ -35,7 +35,7 @@ Centos7 使用 Systemd 提供的`journalctl`管理日志，所有经由`systemd`
 journald 配置文件
 `cat /etc/systemd/journald.conf`
 
-```conf
+```ini
 # This file is part of systemd.
 #
 # systemd is free software; you can redistribute it and/or modify it

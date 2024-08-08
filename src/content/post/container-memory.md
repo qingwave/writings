@@ -18,7 +18,7 @@ categories:
 
 不管 docker 还是 k8s(通过 cadvisor)最终都通过 cgroup 的 memory group 来得到内存的原始文件，memory 相关的主要文件如下:
 
-```conf
+```sh
 cgroup.event_control       #用于eventfd的接口
 memory.usage_in_bytes      #显示当前已用的内存
 memory.limit_in_bytes      #设置/显示当前限制的内存额度
