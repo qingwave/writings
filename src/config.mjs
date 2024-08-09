@@ -3,7 +3,7 @@ const CONFIG = {
 
   origin: 'https://qingwave.github.io',
   basePathname: '',
-  trailingSlash: false,
+  trailingSlash: true,
 
   title: 'Qingwave',
   description: "Qingwave's Blog.",

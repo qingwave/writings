@@ -58,9 +58,7 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
-    sitemap({
-      changefreq: 'daily'
-    }),
+    sitemap(),
     mdx(),
     icon({
       include: {
