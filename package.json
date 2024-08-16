@@ -3,6 +3,9 @@
   "description": "Qingwave's website using Astro + Tailwind CSS.",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >= 21.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -29,7 +32,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
-    "astro": "^4.12.1",
+    "astro": "^4.14.2",
     "astro-compress": "^2.2.28",
     "astro-icon": "^1.1.0",
     "axios": "^1.7.2",
@@ -46,8 +49,10 @@
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.2"
   },
-  "engines": {
-    "node": ">=18.14.1"
+  "overrides": {
+    "astro-icon": {
+      "@iconify/tools": "^4.0.0"
+    }
   },
   "dependencies": {
     "astro-pagefind": "^1.5.0",
