@@ -71,7 +71,7 @@ async function fetchBooksInfo() {
             const existingBook = existingBooks.find(b => b.name === book.name);
             if (existingBook && existingBook.data) {
                 console.log(`Skipping fetch data "${book.name}" as it already has data.`);
-                return {...book, data: existingBook.data};
+                return { ...book, data: existingBook.data };
             }
 
             const bookInfo = await fetchDoubanBook(book.name);
@@ -83,7 +83,22 @@ async function fetchBooksInfo() {
             return null;
         }));
 
-        const filteredBooks = books.filter(book => book !== null);
+        const filteredBooks = books.filter(book => book !== null && book.data).map(book => {
+            if (!book.data.abstract) {
+                return book;
+            }
+
+            const author = book.data.abstract
+            .split('/')[0]
+            .replace(/^[\[\(\{（【].*?[\]\)\}）】]/g, '')
+            .replace(/\s+(著|编|译|等)/g, '')
+            .trim()
+
+            return {
+                ...book,
+                author: author,
+            };
+        });
         if (JSON.stringify(filteredBooks) == JSON.stringify(existingBooks)) {
             console.log('No changes to book information. No file write necessary.');
             return;

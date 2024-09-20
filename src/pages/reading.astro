@@ -74,6 +74,7 @@ const renderStatus = (book) => {
               <div class="text-sm text-gray-600 grid gap-y-2">
                 <a href={book.data.url} target="_blank" rel="noopener noreferrer" class="text-lg font-semibold mb-2 text-primary hover:underline">{book.name}</a>
                 {book.originalName && <p><span class="text-neutral-500">原作名: </span>{book.originalName}</p>}
+                {book.author && <p><span class="text-neutral-500">作者: </span>{book.author}</p>}
                 <p><span class="text-neutral-500">豆瓣评分: </span>{book.data.rating.value}</p>
                 <p><span class="text-neutral-500">主观评分: </span>{renderRatingStars(book.rate)}</p>
                 <p><span class="text-neutral-500">阅读时间: </span>{book.startAt}</p>

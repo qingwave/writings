@@ -29,7 +29,8 @@ export const books = [
       "url": "https://book.douban.com/subject/30329536/",
       "titleMatchScore": 1,
       "itemRating": 1770
-    }
+    },
+    "author": "Martin Kleppmann"
   },
   {
     "name": "架构师修炼之道",
@@ -61,7 +62,8 @@ export const books = [
       "url": "https://book.douban.com/subject/34795642/",
       "titleMatchScore": 1,
       "itemRating": 99
-    }
+    },
+    "author": "Michael Keeling"
   },
   {
     "name": "八次危机",
@@ -91,7 +93,8 @@ export const books = [
       "url": "https://book.douban.com/subject/20394150/",
       "titleMatchScore": 1,
       "itemRating": 8909
-    }
+    },
+    "author": "温铁军"
   },
   {
     "name": "晚清的最后十八年",
@@ -121,7 +124,8 @@ export const books = [
       "url": "https://book.douban.com/subject/26694140/",
       "titleMatchScore": 0.875,
       "itemRating": 1242
-    }
+    },
+    "author": "黄治军"
   },
   {
     "name": "幸得诸君慰平生",
@@ -152,7 +156,8 @@ export const books = [
       "url": "https://book.douban.com/subject/27623390/",
       "titleMatchScore": 1,
       "itemRating": 3354
-    }
+    },
+    "author": "故园风雨前"
   },
   {
     "name": "Release It! Design and Deploy Production-ready Software",
@@ -183,7 +188,8 @@ export const books = [
       "url": "https://book.douban.com/subject/2065284/",
       "titleMatchScore": 1,
       "itemRating": 48
-    }
+    },
+    "author": "Michael T. Nygard"
   },
   {
     "name": "置身事内",
@@ -214,7 +220,8 @@ export const books = [
       "url": "https://book.douban.com/subject/35546622/",
       "titleMatchScore": 1,
       "itemRating": 81669
-    }
+    },
+    "author": "兰小欢"
   },
   {
     "name": "穷爸爸与富爸爸",
@@ -245,7 +252,8 @@ export const books = [
       "url": "https://book.douban.com/subject/1033778/",
       "titleMatchScore": 0.75,
       "itemRating": 78003
-    }
+    },
+    "author": "罗伯特・T・清崎"
   },
   {
     "name": "欧亨利短篇小说集",
@@ -276,7 +284,8 @@ export const books = [
       "url": "https://book.douban.com/subject/4215931/",
       "titleMatchScore": 1,
       "itemRating": 887
-    }
+    },
+    "author": "欧·亨利"
   },
   {
     "name": "局外人",
@@ -307,7 +316,8 @@ export const books = [
       "url": "https://book.douban.com/subject/4908885/",
       "titleMatchScore": 1,
       "itemRating": 242048
-    }
+    },
+    "author": "阿尔贝·加缪"
   },
   {
     "name": "凤凰架构",
@@ -338,6 +348,103 @@ export const books = [
       "url": "https://book.douban.com/subject/35492898/",
       "titleMatchScore": 1,
       "itemRating": 685
-    }
+    },
+    "author": "周志明"
+  },
+  {
+    "name": "窗边的小豆豆",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 4,
+    "comments": "哪里有真实的巴学园，能容纳孩子的天真",
+    "data": {
+      "abstract": "[日] 黑柳彻子 著 / 岩崎千弘 图 / 赵玉皎 / 南海出版公司 / 2003-1 / 20.00元",
+      "abstract_2": "",
+      "cover_url": "https://img2.doubanio.com/view/subject/m/public/s1067911.jpg",
+      "extra_actions": [],
+      "id": 1007914,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'1007914',query:'%E7%AA%97%E8%BE%B9%E7%9A%84%E5%B0%8F%E8%B1%86%E8%B1%86',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 214548,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 8.8
+      },
+      "title": "窗边的小豆豆",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/1007914/",
+      "titleMatchScore": 1,
+      "itemRating": 214548
+    },
+    "author": "黑柳彻子"
+  },
+  {
+    "name": "世上为什么要有图书馆",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 4.5,
+    "comments": "按照作者的话说这是一部芝麻官札记，站在一个局长的角度描述很有意思。唯一不足是后半部分写了很多看书荐书的人，太过散了",
+    "data": {
+      "abstract": "杨素秋 / 上海译文出版社 / 2024-1-1 / 58.00元",
+      "abstract_2": "",
+      "cover_url": "https://img9.doubanio.com/view/subject/m/public/s34705784.jpg",
+      "extra_actions": [],
+      "id": 36593622,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36593622',query:'%E4%B8%96%E4%B8%8A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%9B%BE%E4%B9%A6%E9%A6%86',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 12142,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 9
+      },
+      "title": "世上为什么要有图书馆",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36593622/",
+      "titleMatchScore": 1,
+      "itemRating": 12142
+    },
+    "author": "杨素秋"
+  },
+  {
+    "name": "病榻杂记",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 4,
+    "comments": "九十多岁的老头还能这么真诚的写作，能与时俱进的谈到当前各种社会问题，能客观的评价自己，太难得了。印象最深是写老年十忌的文章",
+    "data": {
+      "abstract": "季羡林 / 新世界出版社 / 2007 / 29.80元",
+      "abstract_2": "",
+      "cover_url": "https://img1.doubanio.com/view/subject/m/public/s1987130.jpg",
+      "extra_actions": [],
+      "id": 1958771,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'1958771',query:'%E7%97%85%E6%A6%BB%E6%9D%82%E8%AE%B0',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 633,
+        "rating_info": "",
+        "star_count": 3.5,
+        "value": 7.4
+      },
+      "title": "病榻杂记",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/1958771/",
+      "titleMatchScore": 1,
+      "itemRating": 633
+    },
+    "author": "季羡林"
   }
 ];
