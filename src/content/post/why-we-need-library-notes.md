@@ -4,7 +4,7 @@ title: 在这座不起眼的图书馆坐了一天
 draft: false
 description: '读了《世上为什么要有图书馆》，顺便去那里度过了一天'
 excerpt: ''
-image: 'https://img9.doubanio.com/view/subject/m/public/s34705784.jpg'
+image: 'https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 categories: ['阅读', '杂记']
 tags: ['杂记']
 ---

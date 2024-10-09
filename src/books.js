@@ -100,8 +100,9 @@ export const books = [
     "name": "晚清的最后十八年",
     "category": "人文",
     "startAt": "2024/07",
+    "endAt": "2024/09",
     "rate": 4,
-    "comments": "又名清朝末年哪些事儿，看起来非常流畅，好像作者参与了整个事件一样，就是有时候某些抒情和心里描写略显中二",
+    "comments": "又名清朝末年那些事儿，看起来非常流畅，好像作者参与了整个事件一样，就是有时候某些抒情和心里描写略显中二。清朝的失败，并非无良将、并非无利器，自上而上的王宫大官只考虑自己的利益，制度之弊也",
     "data": {
       "abstract": "黄治军 / 花城出版社 / 2016-1 / 42.00",
       "abstract_2": "",
@@ -446,5 +447,165 @@ export const books = [
       "itemRating": 633
     },
     "author": "季羡林"
+  },
+  {
+    "name": "囚徒的困境",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 3,
+    "comments": "博弈论的入门书，前半部分讲了冯诺依曼的事迹，后面讲了一些理论和案例，可读性一般",
+    "data": {
+      "abstract": "唐元鹏 / 广东人民出版社 / 2023-6 / 68.00元",
+      "abstract_2": "",
+      "cover_url": "https://img9.doubanio.com/view/subject/m/public/s34547975.jpg",
+      "extra_actions": [],
+      "id": 36193627,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36193627',query:'%E5%9B%9A%E5%BE%92%E7%9A%84%E5%9B%B0%E5%A2%83',i:'2',cat_id:'1001'})\"",
+      "rating": {
+        "count": 960,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 7.5
+      },
+      "title": "熊廷弼之死 : 晚明政局的囚徒困境",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36193627/",
+      "titleMatchScore": 1,
+      "itemRating": 960
+    },
+    "author": "唐元鹏"
+  },
+  {
+    "name": "长安的荔枝",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 3.5,
+    "comments": "小说很短，看过马王爷其他的书，套路很像相似",
+    "data": {
+      "abstract": "马伯庸 / 湖南文艺出版社 / 2022-10 / 45.00元",
+      "abstract_2": "",
+      "cover_url": "https://img3.doubanio.com/view/subject/m/public/s34327482.jpg",
+      "extra_actions": [],
+      "id": 36104107,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36104107',query:'%E9%95%BF%E5%AE%89%E7%9A%84%E8%8D%94%E6%9E%9D',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 203185,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 8.5
+      },
+      "title": "长安的荔枝",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36104107/",
+      "titleMatchScore": 1,
+      "itemRating": 203185
+    },
+    "author": "马伯庸"
+  },
+  {
+    "name": "猫鱼",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 4,
+    "comments": "看过书才知道陈冲居然还当过导演，里面分享了从小到大一些人和事，包括一些很私密的往事，有关电影的描述也有很意思。从这本书可以看出一些时代的痕迹",
+    "data": {
+      "abstract": "陈冲 / 上海三联书店 / 2024-6 / 168",
+      "abstract_2": "",
+      "cover_url": "https://img9.doubanio.com/view/subject/m/public/s34867425.jpg",
+      "extra_actions": [],
+      "id": 36659710,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36659710',query:'%E7%8C%AB%E9%B1%BC',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 1366,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 9
+      },
+      "title": "猫鱼",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36659710/",
+      "titleMatchScore": 1,
+      "itemRating": 1366
+    },
+    "author": "陈冲"
+  },
+  {
+    "name": "太白金星有点烦",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/09",
+    "rate": 3.5,
+    "comments": "天庭的打工人也不好当啊，马王爷是阴谋论的高手，看似胡扯却也能圆通，打发时间翻一翻还可以",
+    "data": {
+      "abstract": "马伯庸 / 湖南文艺出版社 / 2023-6 / 45.00",
+      "abstract_2": "",
+      "cover_url": "https://img9.doubanio.com/view/subject/m/public/s34544956.jpg",
+      "extra_actions": [],
+      "id": 36328704,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36328704',query:'%E5%A4%AA%E7%99%BD%E9%87%91%E6%98%9F%E6%9C%89%E7%82%B9%E7%83%A6',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 103112,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 9
+      },
+      "title": "太白金星有点烦",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36328704/",
+      "titleMatchScore": 1,
+      "itemRating": 103112
+    },
+    "author": "马伯庸"
+  },
+  {
+    "name": "我在北京送快递",
+    "category": "人文",
+    "startAt": "2024/09",
+    "endAt": "2024/10",
+    "rate": 3.5,
+    "comments": "和快递相关的主要两三章，主要写了作者的五花八门工作经历，大概翻翻就知道要讲什么事了",
+    "data": {
+      "abstract": "胡安焉 / 湖南文艺出版社 / 2023-3 / 56.00元",
+      "abstract_2": "",
+      "cover_url": "https://img1.doubanio.com/view/subject/m/public/s34522268.jpg",
+      "extra_actions": [],
+      "id": 36150423,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36150423',query:'%E6%88%91%E5%9C%A8%E5%8C%97%E4%BA%AC%E9%80%81%E5%BF%AB%E9%80%92',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 52930,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 8.1
+      },
+      "title": "我在北京送快递",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36150423/",
+      "titleMatchScore": 1,
+      "itemRating": 52930
+    },
+    "author": "胡安焉"
   }
 ];
