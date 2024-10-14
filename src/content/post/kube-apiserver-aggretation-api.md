@@ -44,7 +44,7 @@ Kubernetes 提供了丰富的扩展功能，实现自定义资源有两种方式
 --enable-aggregator-routing=true
 ```
 
-在[apiserver 启动流程](./kube-apiserver-start.md)中，分析了`AggregationApiserver`的初始化流程, 需要了解的可以回去看下。
+在[apiserver 启动流程](/kube-apiserver-start)中，分析了`AggregationApiserver`的初始化流程, 需要了解的可以回去看下。
 
 ## AggregationApiserver 认证流程
 

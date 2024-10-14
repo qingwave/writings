@@ -10,7 +10,7 @@ categories:
   - cloud
 ---
 
-前文[快速实现一个 Kubernetes Operator](./how-to-write-a-k8s-operator)介绍了`kubebuilder`工具，快速实现了一个`Operator`。今天我们深入水下，探寻`kubebuilder`究竟是如何工作的。
+前文[快速实现一个 Kubernetes Operator](/how-to-write-a-k8s-operator)介绍了`kubebuilder`工具，快速实现了一个`Operator`。今天我们深入水下，探寻`kubebuilder`究竟是如何工作的。
 
 > 2024/7/4更新：本文分析基于[controller-runtime:v0.8.3](https://github.com/kubernetes-sigs/controller-runtime/releases/tag/v0.8.3)，虽然过去了很久，大体流程还是一致的
 

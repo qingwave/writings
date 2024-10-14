@@ -9,7 +9,7 @@ categories: ['ai', 'cloud']
 tags: ['ai', 'k8s']
 ---
 
-在大模型时代，借助大模型的能力我们可以实现更加智能的应用，本文介绍基于`LangChain`框架如何构建一个Kubernetes的`AI Agent`。更多关于大模型的应用开发，可以参考[大模型时代](./llm-era)。
+在大模型时代，借助大模型的能力我们可以实现更加智能的应用，本文介绍基于`LangChain`框架如何构建一个Kubernetes的`AI Agent`。更多关于大模型的应用开发，可以参考[大模型时代](/llm-era)。
 
 [KubeWizard](https://github.com/qingwave/kubewizard)是一个基于大模型（LLM）的K8s自动运维工具，可以自动诊断问题、管理资源，效果如下：
 [![asciicast](https://asciinema.org/a/XS80PxLxtmurqMw6LU7UJtzhb.svg)](https://asciinema.org/a/XS80PxLxtmurqMw6LU7UJtzhb)

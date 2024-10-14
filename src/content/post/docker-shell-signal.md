@@ -82,7 +82,7 @@ wait #等待子进程退出
 
 [docker-init](https://docs.docker.com/engine/reference/run/#specify-an-init-process)即在 docker 启动时加入`--init`参数，docker-int 会作为一号进程，会向子进程传递信号并且会回收僵尸进程。
 
-遗憾的是 k8s 并不支持`--init`参数，用户可在镜像中声明 init 进程，更多可参考[container-init](./container-init.md)
+遗憾的是 k8s 并不支持`--init`参数，用户可在镜像中声明 init 进程：
 
 ```dockerfile
 RUN wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64

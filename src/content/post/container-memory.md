@@ -35,7 +35,7 @@ memory.oom_control         #设置/显示oom controls相关的配置
 memory.numa_stat           #显示numa相关的内存
 ```
 
-更多信息可参考[Pod memory usage in k8s](https://qingwave.github.io/2018/11/15/Pod-memory-usage-in-k8s/#Cadvisor%E4%B8%AD%E6%9C%89%E5%85%B3pod%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E7%8E%87%E7%9A%84%E6%8C%87%E6%A0%87)
+更多信息可参考[Pod memory usage in k8s](/pod-memory-usage-in-k8s)
 
 ## 查看源码
 

@@ -12,7 +12,7 @@ cover: true
 
 ## 简介
 
-kube-apiserver 中与权限相关的主要有三种机制，即认证、鉴权和准入控制。上节讲到[认证流程](./kube-apiserver-authentication-code.md)。
+kube-apiserver 中与权限相关的主要有三种机制，即认证、鉴权和准入控制。上节讲到[认证流程](/kube-apiserver-authentication-code)。
 
 认证与授权很容易混淆：
 
