@@ -164,9 +164,9 @@ export const books = [
     "name": "Release It! Design and Deploy Production-ready Software",
     "category": "技术",
     "startAt": "2024/06",
-    "endAt": "",
+    "endAt": "2024/11",
     "rate": 4,
-    "comments": "英文看起来有些吃力，进行中",
+    "comments": "如何设计面向生产的系统，涉及到如何测试、服务治理、CICD、部署以及软件架构相关内容，可以一读",
     "data": {
       "abstract": "Michael T. Nygard / Pragmatic Bookshelf / 2007-03-30 / USD 34.95",
       "abstract_2": "",
