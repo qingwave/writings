@@ -607,5 +607,68 @@ export const books = [
       "itemRating": 52930
     },
     "author": "胡安焉"
+  },
+  {
+    "name": "多谈谈问题",
+    "category": "人文",
+    "startAt": "2024/11",
+    "endAt": "2025/01",
+    "rate": 4,
+    "comments": "多个不同领域人物的采访集，一些观点还是很受启发的，影响最深刻是关于罗新关于历史的话题还有最后一章的无用之用",
+    "data": {
+      "abstract": "吴琦 / 上海文艺出版社 / 2023-3 / 65.00元",
+      "abstract_2": "",
+      "cover_url": "https://img9.doubanio.com/view/subject/m/public/s34473805.jpg",
+      "extra_actions": [],
+      "id": 36321036,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36321036',query:'%E5%A4%9A%E8%B0%88%E8%B0%88%E9%97%AE%E9%A2%98',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 7183,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 8.5
+      },
+      "title": "多谈谈问题 : 单读33",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36321036/",
+      "titleMatchScore": 1,
+      "itemRating": 7183
+    },
+    "author": "吴琦"
+  },
+  {
+    "name": "可能性的艺术",
+    "category": "人文",
+    "startAt": "2024/11",
+    "rate": 4,
+    "comments": "最早知道刘瑜是「送你一颗子弹」，这本关于民主的书写的挺有意思，案例详实不枯燥",
+    "data": {
+      "abstract": "刘瑜 / 广西师范大学出版社 / 2022-4 / 82.00元",
+      "abstract_2": "",
+      "cover_url": "https://img2.doubanio.com/view/subject/m/public/s34192061.jpg",
+      "extra_actions": [],
+      "id": 35819419,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'35819419',query:'%E5%8F%AF%E8%83%BD%E6%80%A7%E7%9A%84%E8%89%BA%E6%9C%AF',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 44735,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 9.2
+      },
+      "title": "可能性的艺术 : 比较政治学30讲",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/35819419/",
+      "titleMatchScore": 1,
+      "itemRating": 44735
+    },
+    "author": "刘瑜"
   }
 ];
