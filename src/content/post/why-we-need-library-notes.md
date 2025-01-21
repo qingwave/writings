@@ -6,7 +6,7 @@ description: '读了《世上为什么要有图书馆》，顺便去那里度过
 excerpt: ''
 image: 'https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 categories: ['阅读', '杂记']
-tags: ['杂记']
+tags: ['随笔']
 ---
 
 说起图书馆，好多人都去过国图、省图、或者自己大学的，没有注意过竟然还有区图书馆。经常游泳的地方旁边就是一个区图书馆，但从来没有上去看看，前几天读了一本关于图书馆的书，居然被里面描写的图书馆吸引，去那里坐了一整天。
