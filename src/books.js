@@ -70,7 +70,7 @@ export const books = [
     "category": "人文",
     "startAt": "2024/07",
     "rate": 5,
-    "comments": "之前B站上看到过温老师的视频，被吸引过来，书中干货很多，关于农村、中国经济的一些观点独到，和以前学到的历史很有大差异",
+    "comments": "之前B站上看到过温老师的视频，被吸引过来，书中干货很多，关于农村、中国经济的一些观点独到，和以前学到的历史很有大差异。但书写的过于学术，看的人犯困",
     "data": {
       "abstract": "温铁军 等 / 东方出版社 / 2013-1-1 / 55.00元",
       "abstract_2": "",
@@ -670,5 +670,37 @@ export const books = [
       "itemRating": 44735
     },
     "author": "刘瑜"
+  },
+  {
+    "name": "贪婪的多巴胺",
+    "category": "人文",
+    "startAt": "2025/1",
+    "endAt": "2025/2",
+    "rate": 4,
+    "comments": "纠正了一个误会，多巴胺是奖励预期误差，而不是奖励本身。这也解释了为什么浪漫的爱情难长久，美食吃多了也不再美味，随着预期不断调整，最终会回归均值。",
+    "data": {
+      "abstract": "(美) 丹尼尔·利伯曼 / (美) 迈克 尔·E.朗 / [美]丹尼尔•Z•利伯曼 / 郑李垚 / 中信出版社 / 2021-8 / 59",
+      "abstract_2": "",
+      "cover_url": "https://img1.doubanio.com/view/subject/m/public/s33973820.jpg",
+      "extra_actions": [],
+      "id": 35545272,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'35545272',query:'%E8%B4%AA%E5%A9%AA%E7%9A%84%E5%A4%9A%E5%B7%B4%E8%83%BA',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 14173,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 7.8
+      },
+      "title": "贪婪的多巴胺",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/35545272/",
+      "titleMatchScore": 1,
+      "itemRating": 14173
+    },
+    "author": "丹尼尔·利伯曼"
   }
 ];
