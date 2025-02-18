@@ -677,7 +677,7 @@ export const books = [
     "startAt": "2025/1",
     "endAt": "2025/2",
     "rate": 4,
-    "comments": "纠正了一个误会，多巴胺是奖励预期误差，而不是奖励本身。这也解释了为什么浪漫的爱情难长久，美食吃多了也不再美味，随着预期不断调整，最终会回归均值。",
+    "comments": "纠正了一个误会，多巴胺是奖励预期误差，而不是奖励本身。这也解释了为什么浪漫的爱情难长久，美食吃多了也不再美味，随着预期不断调整，最终会回归均值",
     "data": {
       "abstract": "(美) 丹尼尔·利伯曼 / (美) 迈克 尔·E.朗 / [美]丹尼尔•Z•利伯曼 / 郑李垚 / 中信出版社 / 2021-8 / 59",
       "abstract_2": "",
@@ -702,5 +702,37 @@ export const books = [
       "itemRating": 14173
     },
     "author": "丹尼尔·利伯曼"
+  },
+  {
+    "name": "赶时间的人",
+    "category": "人文",
+    "startAt": "2025/1",
+    "endAt": "2025/1",
+    "rate": 4,
+    "comments": "这本书的序写的很好，精华的诗句都有提到，对比《我在北京送外卖》更深刻点",
+    "data": {
+      "abstract": "王计兵 / 台海出版社 / 2023-2-10 / 56元",
+      "abstract_2": "",
+      "cover_url": "https://img9.doubanio.com/view/subject/m/public/s34418464.jpg",
+      "extra_actions": [],
+      "id": 36248699,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'36248699',query:'%E8%B5%B6%E6%97%B6%E9%97%B4%E7%9A%84%E4%BA%BA',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 7226,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 8.3
+      },
+      "title": "赶时间的人 : 一个外卖员的诗",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/36248699/",
+      "titleMatchScore": 1,
+      "itemRating": 7226
+    },
+    "author": "王计兵"
   }
 ];
