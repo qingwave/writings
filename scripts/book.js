@@ -14,7 +14,11 @@ const DOUBAN_SEARCH_URL = 'https://search.douban.com/book/subject_search?search_
 async function fetchDoubanBook(bookTitle) {
     try {
         const searchUrl = `${DOUBAN_SEARCH_URL}${encodeURIComponent(bookTitle)}`;
-        const response = await axios.get(searchUrl);
+        const response = await axios.get(searchUrl, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36'
+            }
+        });
         const html = response.data;
 
         const match = html.match(/window\.__DATA__\s*=\s*({.+?});/s);
@@ -29,7 +33,12 @@ async function fetchDoubanBook(bookTitle) {
             itemRating: item.rating?.count || 0
         }));
 
-        scoredItems.sort((a, b) => b.titleMatchScore - a.titleMatchScore || b.itemRating - a.itemRating);
+        scoredItems.sort((a, b) => {
+            if (b.titleMatchScore !== a.titleMatchScore) {
+                return b.titleMatchScore - a.titleMatchScore;
+            }
+            return b.itemRating - a.itemRating;
+        });
 
         return scoredItems[0];
     } catch (error) {
@@ -45,10 +54,16 @@ async function fetchDoubanBook(bookTitle) {
  * @returns {number} - The match score.
  */
 function calculateTitleMatchScore(searchTitle, itemTitle) {
-    const searchChars = new Set(searchTitle.toLowerCase().split(''));
-    const itemChars = new Set(itemTitle.toLowerCase().split(''));
-    const intersection = [...searchChars].filter(char => itemChars.has(char));
-    return intersection.length / searchChars.size;
+    if (searchTitle === itemTitle) return 1.0;
+    if (itemTitle.includes(searchTitle)) return 0.95;
+    if (searchTitle.includes(itemTitle)) return 0.90;
+
+    const sSet = new Set(searchTitle.split(''));
+    const tSet = new Set(itemTitle.split(''));
+    const intersection = [...sSet].filter(c => tSet.has(c)).length;
+    const union = new Set([...sSet, ...tSet]).size;
+
+    return intersection / union;
 }
 
 /**

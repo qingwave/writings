@@ -69,6 +69,7 @@ export const books = [
     "name": "八次危机",
     "category": "人文",
     "startAt": "2024/07",
+    "endAt": "2025/04",
     "rate": 5,
     "comments": "之前B站上看到过温老师的视频，被吸引过来，书中干货很多，关于农村、中国经济的一些观点独到，和以前学到的历史很有大差异。但书写的过于学术，看的人犯困",
     "data": {
@@ -734,5 +735,130 @@ export const books = [
       "itemRating": 7226
     },
     "author": "王计兵"
+  },
+  {
+    "name": "献给阿尔吉侬的花束",
+    "category": "人文",
+    "startAt": "2025/2",
+    "endAt": "2025/2",
+    "rate": 4,
+    "comments": "看到各大榜单推荐这本书，并不能算作一本科幻小说，高登从一名智障到智商提升到天才再到智商回落的过程，又何尝不是人类从幼年到青年再到暮年。",
+    "data": {
+      "abstract": "[美] 丹尼尔·凯斯 / 陈澄和 / 广西师范大学出版社 / 2015-4 / 36.00元",
+      "abstract_2": "",
+      "cover_url": "https://img1.doubanio.com/view/subject/m/public/s28050760.jpg",
+      "extra_actions": [],
+      "id": 26362836,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'26362836',query:'%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 125892,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 9.1
+      },
+      "title": "献给阿尔吉侬的花束",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/26362836/",
+      "titleMatchScore": 1,
+      "itemRating": 125892
+    },
+    "author": "丹尼尔·凯斯"
+  },
+  {
+    "name": "重构·改善既有代码的设计",
+    "category": "技术",
+    "startAt": "2025/3",
+    "rate": 4,
+    "comments": "介绍了一些切实可行的方法来重构代码，时不时翻一翻，也是一本工具书。",
+    "data": {
+      "abstract": "Martin Fowler / 熊节 / 人民邮电出版社 / 2010 / 69.00元",
+      "abstract_2": "",
+      "cover_url": "https://img1.doubanio.com/view/subject/m/public/s4157180.jpg",
+      "extra_actions": [],
+      "id": 4262627,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'4262627',query:'%E9%87%8D%E6%9E%84%C2%B7%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1',i:'1',cat_id:'1001'})\"",
+      "rating": {
+        "count": 2278,
+        "rating_info": "",
+        "star_count": 4.5,
+        "value": 9
+      },
+      "title": "重构 : 改善既有代码的设计",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/4262627/",
+      "titleMatchScore": 0.7857142857142857,
+      "itemRating": 2278
+    },
+    "author": "Martin Fowler"
+  },
+  {
+    "name": "出梁庄记",
+    "category": "人文",
+    "startAt": "2025/4",
+    "rate": 4.5,
+    "comments": "梁庄是一个典型的中国农村，作者描写了梁庄一些人的遭遇，很多故事看着心酸，会想到身边的人，人到底该怎么样才能算作幸福呢？",
+    "data": {
+      "abstract": "梁鸿 / 花城出版社 / 2013-4 / 39.80元",
+      "abstract_2": "",
+      "cover_url": "https://img3.doubanio.com/view/subject/m/public/s26149652.jpg",
+      "extra_actions": [],
+      "id": 21458706,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'21458706',query:'%E5%87%BA%E6%A2%81%E5%BA%84%E8%AE%B0',i:'1',cat_id:'1001'})\"",
+      "rating": {
+        "count": 4066,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 8.3
+      },
+      "title": "出梁庄记",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/21458706/",
+      "titleMatchScore": 1,
+      "itemRating": 4066
+    },
+    "author": "梁鸿"
+  },
+  {
+    "name": "无问东西",
+    "category": "人文",
+    "startAt": "2025/4",
+    "rate": 4.5,
+    "comments": "之前在图书馆偶然读到季羡林的文章，印象深刻，这本是他的精选集，汇集了各个时期的文章，从童年成长、求学、出国到动荡时期，能感受到他对生活的热爱与思考。",
+    "data": {
+      "abstract": "季羡林 / 天地出版社 / 2019-10 / 68.00元",
+      "abstract_2": "",
+      "cover_url": "https://img3.doubanio.com/view/subject/m/public/s33514533.jpg",
+      "extra_actions": [],
+      "id": 34863594,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'34863594',query:'%E6%97%A0%E9%97%AE%E4%B8%9C%E8%A5%BF',i:'1',cat_id:'1001'})\"",
+      "rating": {
+        "count": 391,
+        "rating_info": "",
+        "star_count": 5,
+        "value": 9.5
+      },
+      "title": "无问西东",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/34863594/",
+      "titleMatchScore": 1,
+      "itemRating": 391
+    },
+    "author": "季羡林"
   }
 ];
