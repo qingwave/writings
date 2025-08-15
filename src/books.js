@@ -834,6 +834,7 @@ export const books = [
     "name": "无问东西",
     "category": "人文",
     "startAt": "2025/4",
+    "endAt": "2025/7",
     "rate": 4.5,
     "comments": "之前在图书馆偶然读到季羡林的文章，印象深刻，这本是他的精选集，汇集了各个时期的文章，从童年成长、求学、出国到动荡时期，能感受到他对生活的热爱与思考。",
     "data": {
@@ -860,5 +861,68 @@ export const books = [
       "itemRating": 391
     },
     "author": "季羡林"
+  },
+  {
+    "name": "蛤蟆先生去看心理医生",
+    "category": "人文",
+    "startAt": "2025/7",
+    "endAt": "2025/8",
+    "rate": 4,
+    "comments": "一本关于抑郁症的书，书中的一些观念很有启发，比如儿童自我状态、父母自我状态。虽然心理医生慢慢带领蛤蟆先生发现了自己的问题，但是怎么治愈的，好像有点突然。现在一些心理问题，一说就是童年创伤，保持怀疑，也可能自己没有切身体会。",
+    "data": {
+      "abstract": "[英] 罗伯特·戴博德 / 陈赢 / 天津人民出版社 / 2020-8-1 / 38.00元",
+      "abstract_2": "",
+      "cover_url": "https://img1.doubanio.com/view/subject/m/public/s33941998.jpg",
+      "extra_actions": [],
+      "id": 35143790,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'35143790',query:'%E8%9B%A4%E8%9F%86%E5%85%88%E7%94%9F%E5%8E%BB%E7%9C%8B%E5%BF%83%E7%90%86%E5%8C%BB%E7%94%9F',i:'0',cat_id:'1001'})\"",
+      "rating": {
+        "count": 181420,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 8.3
+      },
+      "title": "蛤蟆先生去看心理医生",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/35143790/",
+      "titleMatchScore": 1,
+      "itemRating": 181420
+    },
+    "author": "罗伯特·戴博德"
+  },
+  {
+    "name": "当我跑步时，我谈些什么",
+    "category": "人文",
+    "startAt": "2025/8",
+    "rate": 4,
+    "comments": "羡慕村上可以世界各地到处跑步，有天晚上睡不着看了参加超级马拉松那一节，就萌生了也想挑战下自己的想法。第二天就跑了人生第一个10公里，虽然配速很慢，但跑完头脑很清晰，感觉以后没有什么完不成的事了。",
+    "data": {
+      "abstract": "[日] 村上春树 / 施小炜 / 南海出版公司 / 2010-6 / 25.00元",
+      "abstract_2": "",
+      "cover_url": "https://img3.doubanio.com/view/subject/m/public/s4566097.jpg",
+      "extra_actions": [],
+      "id": 4872222,
+      "interest": null,
+      "label_actions": [],
+      "labels": [],
+      "more_url": "onclick=\"moreurl(this,{from:'book_subject_search',subject_id:'4872222',query:'%E5%BD%93%E6%88%91%E8%B7%91%E6%AD%A5%E6%97%B6%EF%BC%8C%E6%88%91%E8%B0%88%E4%BA%9B%E4%BB%80%E4%B9%88',i:'2',cat_id:'1001'})\"",
+      "rating": {
+        "count": 7195,
+        "rating_info": "",
+        "star_count": 4,
+        "value": 8.3
+      },
+      "title": "当我谈跑步时，我谈些什么",
+      "topics": [],
+      "tpl_name": "search_subject",
+      "url": "https://book.douban.com/subject/4872222/",
+      "titleMatchScore": 1,
+      "itemRating": 7195
+    },
+    "author": "村上春树"
   }
 ];
